@@ -1,0 +1,7 @@
+.env*
+*-sa.json
+*.key
+*.pem
+rclone.conf
+/backups/
+.DS_Store
