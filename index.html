@@ -188,13 +188,15 @@ h3{font-size:21px;font-weight:600}
 .case{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:inherit}
 .case .ph.img{border-radius:14px}
 .case-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.case-svc{font-size:13.5px;color:var(--ink-2)}
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px}
 .chip{padding:10px 16px;border:1.5px solid var(--line);border-radius:999px;background:var(--paper);font:600 14px/1 var(--f-body);cursor:pointer;color:var(--ink)}
 .chip.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 
 /* Průběh */
 .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:44px}
-.step{border-top:2px solid var(--ink);padding-top:16px}
+.step{position:relative;border-top:2px solid var(--ink);padding-top:16px}
+.step:not(:last-child)::after{content:"→";position:absolute;top:-12px;right:-17px;width:14px;text-align:center;font:400 18px/22px var(--f-body);color:var(--ink-2)}
 .step .n,.step-opt .n{font:600 13px/1 var(--f-mono);color:var(--ink-3)}
 .step h3{font-size:19px;margin:10px 0 8px}
 .step p{font-size:14.5px;color:var(--ink-2)}
@@ -438,7 +440,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
 .tab i{position:absolute;left:0;right:0;top:0;height:2px;background:rgba(239,238,234,.25);overflow:hidden}
 .tab i::after{content:"";position:absolute;inset:0;background:var(--on-photo);transform:scaleX(0);transform-origin:left}
 .tab.on{color:var(--on-photo);font-weight:500}
-.tab.on i::after{animation:prog 4500ms linear forwards}
+.tab.on i::after{animation:prog 3000ms linear forwards}
 .hero3.paused .tab.on i::after{animation-play-state:paused}
 @keyframes prog{to{transform:scaleX(1)}}
 .hero3 .btns{margin-top:clamp(20px,2.4cqi,30px)}
@@ -468,6 +470,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
 @container site (max-width:980px){
   .c3,.c4{grid-template-columns:repeat(2,1fr)}
   .steps{grid-template-columns:repeat(3,1fr)}
+  .step::after{display:none}
   .team-strip{grid-template-columns:repeat(3,1fr)}
   .facts{grid-template-columns:repeat(3,1fr)}
   .ftr-grid{grid-template-columns:1fr 1fr}
@@ -594,12 +597,12 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
   <section class="s logos" data-label="HP-03 Loga klientů">
     <div class="logos-head"><p class="kicker">Pracovali jsme pro</p><a class="link" href="#/reference">Reference →</a></div>
     <div class="marquee big"><div class="track">
-      <span class="logo-big">Samsung</span><span class="logo-big">Setos</span><span class="logo-big">Bonveno</span><span class="logo-big">Jíša</span><span class="logo-big">Albi</span>
-      <span class="logo-big" aria-hidden="true">Samsung</span><span class="logo-big" aria-hidden="true">Setos</span><span class="logo-big" aria-hidden="true">Bonveno</span><span class="logo-big" aria-hidden="true">Jíša</span><span class="logo-big" aria-hidden="true">Albi</span>
+      <span class="logo-big">Samsung</span><span class="logo-big">Setos</span><span class="logo-big">Bonveno</span><span class="logo-big">Jíša</span><span class="logo-big">Albi</span><span class="logo-big">Just</span>
+      <span class="logo-big" aria-hidden="true">Samsung</span><span class="logo-big" aria-hidden="true">Setos</span><span class="logo-big" aria-hidden="true">Bonveno</span><span class="logo-big" aria-hidden="true">Jíša</span><span class="logo-big" aria-hidden="true">Albi</span><span class="logo-big" aria-hidden="true">Just</span>
     </div></div>
     <div class="marquee big rev" aria-hidden="true"><div class="track">
-      <span class="logo-big">Jíša</span><span class="logo-big">Albi</span><span class="logo-big">Samsung</span><span class="logo-big">Bonveno</span><span class="logo-big">Setos</span>
-      <span class="logo-big" aria-hidden="true">Jíša</span><span class="logo-big" aria-hidden="true">Albi</span><span class="logo-big" aria-hidden="true">Samsung</span><span class="logo-big" aria-hidden="true">Bonveno</span><span class="logo-big" aria-hidden="true">Setos</span>
+      <span class="logo-big">Jíša</span><span class="logo-big">Just</span><span class="logo-big">Albi</span><span class="logo-big">Samsung</span><span class="logo-big">Bonveno</span><span class="logo-big">Setos</span>
+      <span class="logo-big" aria-hidden="true">Jíša</span><span class="logo-big" aria-hidden="true">Just</span><span class="logo-big" aria-hidden="true">Albi</span><span class="logo-big" aria-hidden="true">Samsung</span><span class="logo-big" aria-hidden="true">Bonveno</span><span class="logo-big" aria-hidden="true">Setos</span>
     </div></div>
   </section>
 
@@ -633,16 +636,13 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
   <section class="s works" data-label="HP-06 Vybrané realizace">
     <div class="sec-head">
       <h2>Vybrané realizace</h2>
-      <div class="car-ctrl"><span class="car-count"><b class="js-cur">01</b> / 06</span><button type="button" class="car-btn" data-car="-1" aria-label="Předchozí realizace">←</button><button type="button" class="car-btn" data-car="1" aria-label="Další realizace">→</button></div>
+      <div class="car-ctrl"><span class="car-count"><b class="js-cur">01</b> / 03</span><button type="button" class="car-btn" data-car="-1" aria-label="Předchozí realizace">←</button><button type="button" class="car-btn" data-car="1" aria-label="Další realizace">→</button></div>
     </div>
     <div class="car" tabindex="0" role="region" aria-label="Realizace, posouvejte do strany">
       <ul class="car-track">
         <li class="car-slide"><div class="ph img"><span>Fotka z&nbsp;eventu</span></div><span class="tag b2b">Pro firmy</span><h3>Název eventu</h3><p class="work-meta">Klient · typ eventu · počet hostů · místo · rok</p></li>
         <li class="car-slide"><div class="ph img"><span>Fotka z&nbsp;eventu</span></div><span class="tag b2c">Pro vás osobně</span><h3>Název eventu</h3><p class="work-meta">Typ eventu · počet hostů · místo · rok</p></li>
         <li class="car-slide"><div class="ph img"><span>Fotka z&nbsp;eventu</span></div><span class="tag b2b">Pro firmy</span><h3>Název eventu</h3><p class="work-meta">Klient · typ eventu · počet hostů · místo · rok</p></li>
-        <li class="car-slide"><div class="ph img"><span>Fotka z&nbsp;eventu</span></div><span class="tag b2c">Pro vás osobně</span><h3>Název eventu</h3><p class="work-meta">Typ eventu · počet hostů · místo · rok</p></li>
-        <li class="car-slide"><div class="ph img"><span>Fotka z&nbsp;eventu</span></div><span class="tag b2b">Pro firmy</span><h3>Název eventu</h3><p class="work-meta">Klient · typ eventu · počet hostů · místo · rok</p></li>
-        <li class="car-slide"><div class="ph img"><span>Fotka z&nbsp;eventu</span></div><span class="tag b2c">Pro vás osobně</span><h3>Název eventu</h3><p class="work-meta">Typ eventu · počet hostů · místo · rok</p></li>
       </ul>
     </div>
     <p class="car-foot"><a class="link" href="#/reference">Všechny reference →</a></p>
@@ -690,12 +690,8 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
           <blockquote>„Dvě až tři věty od klienta: co se mu na spolupráci líbilo a&nbsp;jak event dopadl.“</blockquote>
           <figcaption><b>Jméno klienta</b><span class="tag b2c">Pro vás osobně</span><span>Oslava narozenin</span></figcaption>
         </figure>
-        <figure class="q2">
-          <blockquote>„Dvě až tři věty od klienta: co se mu na spolupráci líbilo a&nbsp;jak event dopadl.“</blockquote>
-          <figcaption><b>Jméno klienta · role, firma</b><span class="tag b2b">Pro firmy</span><span>Vánoční večírek</span></figcaption>
-        </figure>
       </div>
-      <div class="car-ctrl q2-ctrl"><span class="car-count"><b class="js-qcur">01</b> / 04</span><button type="button" class="car-btn" data-q="-1" aria-label="Předchozí ohlas">←</button><button type="button" class="car-btn" data-q="1" aria-label="Další ohlas">→</button></div>
+      <div class="car-ctrl q2-ctrl"><span class="car-count"><b class="js-qcur">01</b> / 03</span><button type="button" class="car-btn" data-q="-1" aria-label="Předchozí ohlas">←</button><button type="button" class="car-btn" data-q="1" aria-label="Další ohlas">→</button></div>
     </div>
   </section>
 
@@ -711,10 +707,11 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
   <section class="s intro" data-label="SL-02 Úvod">
     <p class="crumbs"><a href="#/">Úvod</a> / Služby</p>
     <h1 class="page-title">Služby</h1>
-    <p class="lead">Firemní eventy i&nbsp;soukromé oslavy pro 10 až 450 hostů. Rozbalte službu, která vás zajímá.</p>
+    <p class="lead">Firemní eventy i&nbsp;soukromé oslavy pro 10 až 450 hostů, k&nbsp;tomu reklamní předměty a&nbsp;tiskoviny. Rozbalte službu, která vás zajímá.</p>
     <div class="chips" style="margin:28px auto 0">
       <button type="button" class="chip" data-scroll="grp-firmy">Pro firmy</button>
       <button type="button" class="chip" data-scroll="grp-osobne">Pro vás osobně</button>
+      <button type="button" class="chip" data-scroll="grp-reklama">Reklama a&nbsp;tisk</button>
     </div>
   </section>
 
@@ -749,22 +746,6 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
         <div class="gallery">
           <div class="ph img"><span>Fotka z&nbsp;konference</span></div><div class="ph img"><span>Fotka z&nbsp;konference</span></div>
           <div class="ph img"><span>Fotka z&nbsp;konference</span></div><div class="ph img"><span>Fotka z&nbsp;konference</span></div>
-        </div>
-      </div></div>
-    </div>
-
-    <div class="acc" id="acc-reklamni-material">
-      <button type="button" class="acc-h" aria-expanded="false"><span class="acc-title">Reklamní materiál</span><span class="acc-sub">Reklamní předměty · Tiskoviny · Grafika</span><span class="acc-ico" aria-hidden="true">+</span></button>
-      <div class="acc-b"><div class="acc-grid">
-        <div>
-          <div class="ph txt"><span>Krátký popis kategorie, 2–3 věty: co vyrobíte, k&nbsp;jakým eventům, jak dlouho to trvá.</span></div>
-          <h4>Co zajistíme</h4>
-          <ul class="list"><li>Reklamní předměty</li><li>Tiskoviny</li><li>Grafika</li></ul>
-          <div class="btns"><a class="cta" href="#/kontakt?typ=reklamni-material">Poptat reklamní materiál</a></div>
-        </div>
-        <div class="gallery">
-          <div class="ph img"><span>Ukázka reklamních předmětů</span></div><div class="ph img"><span>Ukázka tiskovin</span></div>
-          <div class="ph img"><span>Ukázka grafiky</span></div><div class="ph img"><span>Ukázka z&nbsp;eventu</span></div>
         </div>
       </div></div>
     </div>
@@ -815,6 +796,26 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
     </div>
   </section>
 
+  <section class="s grp" id="grp-reklama" data-label="SL-04b Reklama a tisk">
+    <div class="grp-head"><span class="tag">Reklama a&nbsp;tisk</span></div>
+
+    <div class="acc" id="acc-reklamni-material">
+      <button type="button" class="acc-h" aria-expanded="false"><span class="acc-title">Reklamní materiál</span><span class="acc-sub">Reklamní předměty · Tiskoviny · Grafika</span><span class="acc-ico" aria-hidden="true">+</span></button>
+      <div class="acc-b"><div class="acc-grid">
+        <div>
+          <div class="ph txt"><span>Krátký popis kategorie, 2–3 věty: co vyrobíte, k&nbsp;jakým eventům, jak dlouho to trvá.</span></div>
+          <h4>Co zajistíme</h4>
+          <ul class="list"><li>Reklamní předměty</li><li>Tiskoviny</li><li>Grafika</li></ul>
+          <div class="btns"><a class="cta" href="#/kontakt?typ=reklamni-material">Poptat reklamní materiál</a></div>
+        </div>
+        <div class="gallery">
+          <div class="ph img"><span>Ukázka reklamních předmětů</span></div><div class="ph img"><span>Ukázka tiskovin</span></div>
+          <div class="ph img"><span>Ukázka grafiky</span></div><div class="ph img"><span>Ukázka z&nbsp;eventu</span></div>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
   <section class="s" data-label="SL-05 Jak to probíhá">
     <h2>Jak probíhá spolupráce s&nbsp;námi</h2>
     <div data-slot="process"></div>
@@ -837,14 +838,19 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
   <section class="s" data-label="RF-03 Realizace">
     <div class="chips" role="group" aria-label="Filtr realizací">
       <button type="button" class="chip on" data-filter="all">Vše</button>
-      <button type="button" class="chip" data-filter="b2b">Pro firmy</button>
-      <button type="button" class="chip" data-filter="b2c">Pro vás osobně</button>
+      <button type="button" class="chip" data-filter="firemni-eventy">Firemní eventy</button>
+      <button type="button" class="chip" data-filter="konference-a-business-eventy">Konference a&nbsp;business eventy</button>
+      <button type="button" class="chip" data-filter="reklamni-material">Reklamní materiál</button>
+      <button type="button" class="chip" data-filter="oslavy">Oslavy</button>
+      <button type="button" class="chip" data-filter="svatby">Svatby</button>
     </div>
     <div class="cards c2 case-grid">
-      <div class="case" data-seg="b2b"><div class="ph img r169"><span>Hlavní fotka eventu</span></div><div class="case-meta"><span class="tag b2b">Pro firmy</span></div><div class="ph txt line"><b>Název eventu</b><span>Klient · typ eventu · počet hostů · rok</span></div></div>
-      <div class="case" data-seg="b2c"><div class="ph img r169"><span>Hlavní fotka eventu</span></div><div class="case-meta"><span class="tag b2c">Pro vás osobně</span></div><div class="ph txt line"><b>Název eventu</b><span>Typ eventu · počet hostů · rok</span></div></div>
-      <div class="case" data-seg="b2b"><div class="ph img r169"><span>Hlavní fotka eventu</span></div><div class="case-meta"><span class="tag b2b">Pro firmy</span></div><div class="ph txt line"><b>Název eventu</b><span>Klient · typ eventu · počet hostů · rok</span></div></div>
-      <div class="case" data-seg="b2c"><div class="ph img r169"><span>Hlavní fotka eventu</span></div><div class="case-meta"><span class="tag b2c">Pro vás osobně</span></div><div class="ph txt line"><b>Název eventu</b><span>Typ eventu · počet hostů · rok</span></div></div>
+      <div class="case" data-svc="firemni-eventy"><div class="ph img r169"><span>Hlavní fotka eventu</span></div><div class="case-meta"><span class="tag b2b">Pro firmy</span><span class="case-svc">Firemní eventy</span></div><div class="ph txt line"><b>Název eventu</b><span>Klient · typ eventu · počet hostů · rok</span></div></div>
+      <div class="case" data-svc="svatby"><div class="ph img r169"><span>Hlavní fotka eventu</span></div><div class="case-meta"><span class="tag b2c">Pro vás osobně</span><span class="case-svc">Svatby</span></div><div class="ph txt line"><b>Název eventu</b><span>Typ eventu · počet hostů · rok</span></div></div>
+      <div class="case" data-svc="konference-a-business-eventy"><div class="ph img r169"><span>Hlavní fotka eventu</span></div><div class="case-meta"><span class="tag b2b">Pro firmy</span><span class="case-svc">Konference a&nbsp;business eventy</span></div><div class="ph txt line"><b>Název eventu</b><span>Klient · typ eventu · počet hostů · rok</span></div></div>
+      <div class="case" data-svc="oslavy"><div class="ph img r169"><span>Hlavní fotka eventu</span></div><div class="case-meta"><span class="tag b2c">Pro vás osobně</span><span class="case-svc">Oslavy</span></div><div class="ph txt line"><b>Název eventu</b><span>Typ eventu · počet hostů · rok</span></div></div>
+      <div class="case" data-svc="reklamni-material"><div class="ph img r169"><span>Hlavní fotka eventu</span></div><div class="case-meta"><span class="tag">Reklama a&nbsp;tisk</span><span class="case-svc">Reklamní materiál</span></div><div class="ph txt line"><b>Název zakázky</b><span>Klient · co jsme vyrobili · rok</span></div></div>
+      <div class="case" data-svc="firemni-eventy"><div class="ph img r169"><span>Hlavní fotka eventu</span></div><div class="case-meta"><span class="tag b2b">Pro firmy</span><span class="case-svc">Firemní eventy</span></div><div class="ph txt line"><b>Název eventu</b><span>Klient · typ eventu · počet hostů · rok</span></div></div>
     </div>
   </section>
 
@@ -860,12 +866,12 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
   <section class="s logos" data-label="RF-05 Klienti">
     <p class="kicker">Pracovali jsme pro</p>
     <div class="marquee big"><div class="track">
-      <span class="logo-big">Samsung</span><span class="logo-big">Setos</span><span class="logo-big">Bonveno</span><span class="logo-big">Jíša</span><span class="logo-big">Albi</span>
-      <span class="logo-big" aria-hidden="true">Samsung</span><span class="logo-big" aria-hidden="true">Setos</span><span class="logo-big" aria-hidden="true">Bonveno</span><span class="logo-big" aria-hidden="true">Jíša</span><span class="logo-big" aria-hidden="true">Albi</span>
+      <span class="logo-big">Samsung</span><span class="logo-big">Setos</span><span class="logo-big">Bonveno</span><span class="logo-big">Jíša</span><span class="logo-big">Albi</span><span class="logo-big">Just</span>
+      <span class="logo-big" aria-hidden="true">Samsung</span><span class="logo-big" aria-hidden="true">Setos</span><span class="logo-big" aria-hidden="true">Bonveno</span><span class="logo-big" aria-hidden="true">Jíša</span><span class="logo-big" aria-hidden="true">Albi</span><span class="logo-big" aria-hidden="true">Just</span>
     </div></div>
     <div class="marquee big rev" aria-hidden="true"><div class="track">
-      <span class="logo-big">Jíša</span><span class="logo-big">Albi</span><span class="logo-big">Samsung</span><span class="logo-big">Bonveno</span><span class="logo-big">Setos</span>
-      <span class="logo-big" aria-hidden="true">Jíša</span><span class="logo-big" aria-hidden="true">Albi</span><span class="logo-big" aria-hidden="true">Samsung</span><span class="logo-big" aria-hidden="true">Bonveno</span><span class="logo-big" aria-hidden="true">Setos</span>
+      <span class="logo-big">Jíša</span><span class="logo-big">Just</span><span class="logo-big">Albi</span><span class="logo-big">Samsung</span><span class="logo-big">Bonveno</span><span class="logo-big">Setos</span>
+      <span class="logo-big" aria-hidden="true">Jíša</span><span class="logo-big" aria-hidden="true">Just</span><span class="logo-big" aria-hidden="true">Albi</span><span class="logo-big" aria-hidden="true">Samsung</span><span class="logo-big" aria-hidden="true">Bonveno</span><span class="logo-big" aria-hidden="true">Setos</span>
     </div></div>
   </section>
 
@@ -913,7 +919,6 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
       <div class="val">Přátelský a&nbsp;vstřícný přístup</div>
       <div class="val missing">Hodnota</div>
       <div class="val missing">Hodnota</div>
-      <div class="val missing">Hodnota</div>
     </div>
   </section>
 
@@ -958,6 +963,10 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
             <option value="jine">Něco jiného</option>
           </select>
         </div>
+        <div class="field full js-pod" hidden>
+          <label for="f-pod">Upřesnění</label>
+          <select id="f-pod" name="podkategorie"><option value="">Vyberte…</option></select>
+        </div>
         <div class="field">
           <label for="f-datum">Datum <span class="req">*</span></label>
           <input id="f-datum" type="date" name="datum">
@@ -980,7 +989,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
           <textarea id="f-popis" name="popis" placeholder="Co pořádáte nebo slavíte a co je pro vás důležité"></textarea>
         </div>
         <div class="field">
-          <label for="f-tel">Telefonní číslo</label>
+          <label for="f-tel">Telefonní číslo <span class="req">*</span></label>
           <input id="f-tel" type="tel" name="telefon" autocomplete="tel">
         </div>
         <div class="field">
@@ -1207,7 +1216,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
     <div class="ftr-grid">
       <div>
         <a class="logo" href="#/" aria-label="Happy Production, úvod"><svg class="logo-svg" viewBox="0 0 528.529296875 103.970703125" aria-hidden="true" focusable="false"><use href="#hp-logo"/></svg></a>
-        <p>Eventová agentura v&nbsp;srdci Karlína.<br>Děláme eventy, ze kterých odcházíte happy.</p>
+        <p>Eventová agentura v&nbsp;srdci Karlína.<br>Děláme eventy, ze kterých budete happy.</p>
       </div>
       <div>
         <h4>Pro firmy</h4>
@@ -1287,7 +1296,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
     sel.value = val;
     document.title = 'Happy Production – wireframe: ' + TITLES[page];
 
-    if (page === 'kontakt' && query.get('typ')) $('#f-typ').value = query.get('typ');
+    if (page === 'kontakt' && query.get('typ')){ $('#f-typ').value = query.get('typ'); fillPod(); }
 
     if (page === 'sluzby' && sub){
       var acc = document.getElementById('acc-' + sub);
@@ -1351,7 +1360,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
     if (chip){
       var grid = chip.closest('section').querySelector('.case-grid');
       $$('[data-filter]', chip.parentElement).forEach(function(c){ c.classList.toggle('on', c === chip); });
-      $$('.case', grid).forEach(function(c){ c.hidden = !(chip.dataset.filter === 'all' || c.dataset.seg === chip.dataset.filter); });
+      $$('.case', grid).forEach(function(c){ c.hidden = !(chip.dataset.filter === 'all' || c.dataset.svc === chip.dataset.filter); });
       return;
     }
 
@@ -1379,8 +1388,11 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
     var cur = $('.js-cur', sec), btns = $$('[data-car]', sec);
     function step(){ return slides[0].getBoundingClientRect().width + (parseFloat(getComputedStyle(track).columnGap) || 20); }
     function update(){
+      // Když se všechny realizace vejdou na šířku, není co posouvat: šipky a počítadlo se schovají
+      var fits = car.scrollWidth <= car.clientWidth + 4;
+      $('.car-ctrl', sec).hidden = fits;
       var atEnd = car.scrollLeft + car.clientWidth >= car.scrollWidth - 4;
-      var i = atEnd ? slides.length - 1 : Math.min(slides.length - 1, Math.round(car.scrollLeft / step()));
+      var i = fits ? 0 : atEnd ? slides.length - 1 : Math.min(slides.length - 1, Math.round(car.scrollLeft / step()));
       cur.textContent = String(i + 1).padStart(2, '0');
       btns[0].disabled = car.scrollLeft < 4;
       btns[1].disabled = atEnd;
@@ -1621,6 +1633,18 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
   window.addEventListener('resize', hdrState);
   window.addEventListener('hashchange', function(){ setTimeout(hdrState, 0); });
   document.addEventListener('click', function(e){ if (e.target.closest('[data-view]')) setTimeout(hdrState, 0); });
+
+  // Formulář: podle vybrané služby nabídne upřesnění, bere ho ze seznamů v boxech na stránce Služby
+  function fillPod(){
+    var v = $('#f-typ').value, acc = v && document.getElementById('acc-' + v), sel = $('#f-pod');
+    var items = acc ? $$('.list li', acc).map(function(li){ return li.textContent; }) : [];
+    sel.textContent = '';
+    ['Vyberte…'].concat(items, items.length ? ['Něco jiného'] : []).forEach(function(t, n){
+      var o = document.createElement('option'); o.value = n ? t : ''; o.textContent = t; sel.appendChild(o);
+    });
+    $('.js-pod').hidden = !items.length;
+  }
+  $('#f-typ').addEventListener('change', fillPod);
 
   window.addEventListener('hashchange', go);
   go();
