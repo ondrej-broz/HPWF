@@ -151,23 +151,17 @@ h3{font-size:21px;font-weight:600}
 .logo-slot{flex:none;width:172px;height:66px;border:1px solid var(--line-2);border-radius:10px;display:grid;place-items:center;font:600 16px/1 var(--f-head);color:var(--ink-2);background:var(--block)}
 .logo-slot.missing{border-style:dashed;background:repeating-linear-gradient(-45deg,transparent 0 9px,rgba(0,0,0,.045) 9px 10px),var(--block);font:600 11px/1 var(--f-mono);color:var(--ink-3)}
 @keyframes mq{to{transform:translateX(-50%)}}
-/* Loga klientů: jen známí klienti, velká a výrazná, jeden pomalý pruh */
+/* Loga klientů: jen známí klienti, velká a výrazná, dva pomalé protiběžné pruhy (homepage i Reference) */
 .logos{padding-top:clamp(48px,6cqi,84px);padding-bottom:clamp(48px,6cqi,84px)}
 .logos-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:clamp(24px,3cqi,40px)}
 .logos-head .kicker{margin:0}
 .marquee.big .track{gap:clamp(56px,7.5cqi,128px);animation-duration:48s}
 .marquee.big .logo-big{padding:.08em 0 .2em}
 .marquee.big:hover .track{animation-play-state:paused}
+.marquee.big+.marquee.big{margin-top:clamp(8px,1.2cqi,20px)}
 .logo-big{flex:none;font:700 clamp(40px,5.6cqi,84px)/1 var(--f-head);letter-spacing:-.035em;color:var(--ink);white-space:nowrap}
-.logo-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.logo-row .logo-big{display:grid;place-items:center;padding:clamp(28px,3.4cqi,48px) 12px;font-size:clamp(24px,2.8cqi,40px);border-left:1px solid var(--line-2)}
-.logo-row .logo-big:first-child{border-left:0}
 @container site (max-width:760px){
   .marquee.big .track{gap:48px}
-  .logo-row{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .logo-row .logo-big{border-left:0;border-top:1px solid var(--line-2);font-size:24px;padding:22px 8px}
-  .logo-row .logo-big:nth-child(-n+2){border-top:0}
-  .logo-row .logo-big:nth-child(even){border-left:1px solid var(--line-2)}
 }
 
 /* Karty */
@@ -288,7 +282,7 @@ h3{font-size:21px;font-weight:600}
 .ftr{position:relative;background:var(--dark);color:var(--on-dark);padding:72px var(--gutter) 28px}
 .ftr-grid{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:36px}
 .ftr .logo{color:var(--on-dark)}
-.ftr p{margin-top:16px;font-size:14.5px;opacity:.85;max-width:34ch}
+.ftr p{margin-top:16px;font-size:14.5px;opacity:.85;max-width:44ch}
 .ftr h4{font:600 12px/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;opacity:.7;margin-bottom:14px;color:var(--on-dark)}
 .ftr li{padding:4px 0;font-size:14.5px}
 .ftr a{text-decoration:none}
@@ -543,7 +537,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
     <option value="">Homepage</option>
     <option value="sluzby">Služby</option>
     <option value="reference">Reference</option>
-    <option value="o-nas">O nás</option>
+    <option value="o-nas">O&nbsp;nás</option>
     <option value="kontakt">Kontakt</option>
     <option value="neexistuje">404</option>
     <option value="prehled">Přehled</option>
@@ -575,7 +569,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
       <div class="hero3-copy">
         <h1>Eventová agentura v&nbsp;srdci Karlína</h1>
         <p class="claim" aria-hidden="true">Děláme <a href="#/sluzby/firemni-eventy" class="claim-word js-word">firemní eventy,</a><br>ze kterých odcházíte happy.</p>
-        <p class="sr-only">Děláme firemní eventy, konference, teambuildingy, vánoční večírky, oslavy a svatby, ze kterých odcházíte happy.</p>
+        <p class="sr-only">Děláme firemní eventy, konference, teambuildingy, vánoční večírky, oslavy a&nbsp;svatby, ze kterých odcházíte happy.</p>
         <div class="tabs" role="group" aria-label="Typy eventů">
           <button type="button" class="tab on" aria-pressed="true"><i></i>Firemní eventy</button>
           <button type="button" class="tab" aria-pressed="false"><i></i>Konference</button>
@@ -603,20 +597,24 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
       <span class="logo-big">Samsung</span><span class="logo-big">Setos</span><span class="logo-big">Bonveno</span><span class="logo-big">Jíša</span><span class="logo-big">Albi</span>
       <span class="logo-big" aria-hidden="true">Samsung</span><span class="logo-big" aria-hidden="true">Setos</span><span class="logo-big" aria-hidden="true">Bonveno</span><span class="logo-big" aria-hidden="true">Jíša</span><span class="logo-big" aria-hidden="true">Albi</span>
     </div></div>
+    <div class="marquee big rev" aria-hidden="true"><div class="track">
+      <span class="logo-big">Jíša</span><span class="logo-big">Albi</span><span class="logo-big">Samsung</span><span class="logo-big">Bonveno</span><span class="logo-big">Setos</span>
+      <span class="logo-big" aria-hidden="true">Jíša</span><span class="logo-big" aria-hidden="true">Albi</span><span class="logo-big" aria-hidden="true">Samsung</span><span class="logo-big" aria-hidden="true">Bonveno</span><span class="logo-big" aria-hidden="true">Setos</span>
+    </div></div>
   </section>
 
   <section class="s svc" data-label="HP-04 Služby">
     <div class="svc-head">
-      <h2>S čím vám pomůžeme</h2>
+      <h2>Co pro vás můžeme udělat?</h2>
       <a class="link" href="#/sluzby">Všechny služby →</a>
     </div>
     <div class="svc-cols">
       <div class="svc-col">
         <span class="tag b2b">Pro firmy</span>
-        <div class="ph img"><span>Fotka z firemního eventu</span></div>
+        <div class="ph img"><span>Fotka z&nbsp;firemního eventu</span></div>
         <div class="svc-list">
         <a class="svc-row" href="#/sluzby/firemni-eventy"><span class="svc-txt"><h3>Firemní eventy</h3><p>Teambuilding · Vánoční večírky · Zaměstnanecké porady · Firemní zájezdy · Eventy pro klienty</p></span><span class="arr" aria-hidden="true">→</span></a>
-        <a class="svc-row" href="#/sluzby/konference-a-business-eventy"><span class="svc-txt"><h3>Konference a business eventy</h3><p>Služební cesty · Konference · Veletrhy · Semináře a workshopy · Business snídaně</p></span><span class="arr" aria-hidden="true">→</span></a>
+        <a class="svc-row" href="#/sluzby/konference-a-business-eventy"><span class="svc-txt"><h3>Konference a&nbsp;business eventy</h3><p>Služební cesty · Konference · Veletrhy · Semináře a&nbsp;workshopy · Business snídaně</p></span><span class="arr" aria-hidden="true">→</span></a>
         <a class="svc-row" href="#/sluzby/reklamni-material"><span class="svc-txt"><h3>Reklamní materiál</h3><p>Reklamní předměty · Tiskoviny · Grafika</p></span><span class="arr" aria-hidden="true">→</span></a>
         </div>
       </div>
@@ -639,19 +637,19 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
     </div>
     <div class="car" tabindex="0" role="region" aria-label="Realizace, posouvejte do strany">
       <ul class="car-track">
-        <li class="car-slide"><div class="ph img"><span>Fotka z eventu</span></div><span class="tag b2b">Pro firmy</span><h3>Název eventu</h3><p class="work-meta">Klient · typ eventu · počet hostů · místo · rok</p></li>
-        <li class="car-slide"><div class="ph img"><span>Fotka z eventu</span></div><span class="tag b2c">Pro vás osobně</span><h3>Název eventu</h3><p class="work-meta">Typ eventu · počet hostů · místo · rok</p></li>
-        <li class="car-slide"><div class="ph img"><span>Fotka z eventu</span></div><span class="tag b2b">Pro firmy</span><h3>Název eventu</h3><p class="work-meta">Klient · typ eventu · počet hostů · místo · rok</p></li>
-        <li class="car-slide"><div class="ph img"><span>Fotka z eventu</span></div><span class="tag b2c">Pro vás osobně</span><h3>Název eventu</h3><p class="work-meta">Typ eventu · počet hostů · místo · rok</p></li>
-        <li class="car-slide"><div class="ph img"><span>Fotka z eventu</span></div><span class="tag b2b">Pro firmy</span><h3>Název eventu</h3><p class="work-meta">Klient · typ eventu · počet hostů · místo · rok</p></li>
-        <li class="car-slide"><div class="ph img"><span>Fotka z eventu</span></div><span class="tag b2c">Pro vás osobně</span><h3>Název eventu</h3><p class="work-meta">Typ eventu · počet hostů · místo · rok</p></li>
+        <li class="car-slide"><div class="ph img"><span>Fotka z&nbsp;eventu</span></div><span class="tag b2b">Pro firmy</span><h3>Název eventu</h3><p class="work-meta">Klient · typ eventu · počet hostů · místo · rok</p></li>
+        <li class="car-slide"><div class="ph img"><span>Fotka z&nbsp;eventu</span></div><span class="tag b2c">Pro vás osobně</span><h3>Název eventu</h3><p class="work-meta">Typ eventu · počet hostů · místo · rok</p></li>
+        <li class="car-slide"><div class="ph img"><span>Fotka z&nbsp;eventu</span></div><span class="tag b2b">Pro firmy</span><h3>Název eventu</h3><p class="work-meta">Klient · typ eventu · počet hostů · místo · rok</p></li>
+        <li class="car-slide"><div class="ph img"><span>Fotka z&nbsp;eventu</span></div><span class="tag b2c">Pro vás osobně</span><h3>Název eventu</h3><p class="work-meta">Typ eventu · počet hostů · místo · rok</p></li>
+        <li class="car-slide"><div class="ph img"><span>Fotka z&nbsp;eventu</span></div><span class="tag b2b">Pro firmy</span><h3>Název eventu</h3><p class="work-meta">Klient · typ eventu · počet hostů · místo · rok</p></li>
+        <li class="car-slide"><div class="ph img"><span>Fotka z&nbsp;eventu</span></div><span class="tag b2c">Pro vás osobně</span><h3>Název eventu</h3><p class="work-meta">Typ eventu · počet hostů · místo · rok</p></li>
       </ul>
     </div>
     <p class="car-foot"><a class="link" href="#/reference">Všechny reference →</a></p>
   </section>
 
   <section class="s" data-label="HP-07 Jak to probíhá">
-    <h2>Jak to probíhá</h2>
+    <h2>Jak probíhá spolupráce s&nbsp;námi</h2>
     <p class="lead">Pět kroků od poptávky po event.</p>
     <div data-slot="process"></div>
   </section>
@@ -659,17 +657,17 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
   <section class="s about3" data-label="HP-08 O nás">
     <div class="about3-photo">
       <div class="photo" aria-hidden="true"></div>
-      <p class="photo-label">Na fotce: tým v kanceláři v Karlíně</p>
+      <p class="photo-label">Na fotce: tým v&nbsp;kanceláři v&nbsp;Karlíně</p>
       <div class="about3-in">
         <h2>Jsme Happy Production.</h2>
-        <p class="about3-sub">Vaše eventovka v srdci Karlína.</p>
+        <p class="about3-sub">Vaše eventovka v&nbsp;srdci Karlína.</p>
         <div class="ph txt about3-story"><span>Krátký příběh: od kdy fungujeme, kdo za Happy stojí, proč Karlín. 2–3 věty.</span></div>
         <a class="link" href="#/o-nas">Poznejte nás →</a>
       </div>
     </div>
     <div class="about3-vals">
       <ul class="vals3">
-        <li><h3>Přátelský a vstřícný přístup</h3><div class="ph txt line"><span>Jedna věta, co to pro klienta znamená</span></div></li>
+        <li><h3>Přátelský a&nbsp;vstřícný přístup</h3><div class="ph txt line"><span>Jedna věta, co to pro klienta znamená</span></div></li>
         <li><div class="ph txt line"><b>Hodnota</b><span>Jedna věta, co to pro klienta znamená</span></div></li>
         <li><div class="ph txt line"><b>Hodnota</b><span>Jedna věta, co to pro klienta znamená</span></div></li>
       </ul>
@@ -678,22 +676,22 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
 
   <section class="s band quotes2" data-label="HP-09 Ohlasy klientů">
     <div class="q2-grid">
-      <h2 class="q2-head">Co říkají klienti</h2>
+      <h2 class="q2-head">Co říkají naši klienti?</h2>
       <div class="q2-stage" tabindex="0" role="region" aria-label="Ohlasy klientů, šipkami přepnete">
         <figure class="q2 on">
-          <blockquote>„Dvě až tři věty od klienta: co se mu na spolupráci líbilo a jak event dopadl.“</blockquote>
+          <blockquote>„Dvě až tři věty od klienta: co se mu na spolupráci líbilo a&nbsp;jak event dopadl.“</blockquote>
           <figcaption><b>Jméno klienta</b><span class="tag b2c">Pro vás osobně</span><span>Svatba</span></figcaption>
         </figure>
         <figure class="q2">
-          <blockquote>„Dvě až tři věty od klienta: co se mu na spolupráci líbilo a jak event dopadl.“</blockquote>
+          <blockquote>„Dvě až tři věty od klienta: co se mu na spolupráci líbilo a&nbsp;jak event dopadl.“</blockquote>
           <figcaption><b>Jméno klienta · role, firma</b><span class="tag b2b">Pro firmy</span><span>Konference</span></figcaption>
         </figure>
         <figure class="q2">
-          <blockquote>„Dvě až tři věty od klienta: co se mu na spolupráci líbilo a jak event dopadl.“</blockquote>
+          <blockquote>„Dvě až tři věty od klienta: co se mu na spolupráci líbilo a&nbsp;jak event dopadl.“</blockquote>
           <figcaption><b>Jméno klienta</b><span class="tag b2c">Pro vás osobně</span><span>Oslava narozenin</span></figcaption>
         </figure>
         <figure class="q2">
-          <blockquote>„Dvě až tři věty od klienta: co se mu na spolupráci líbilo a jak event dopadl.“</blockquote>
+          <blockquote>„Dvě až tři věty od klienta: co se mu na spolupráci líbilo a&nbsp;jak event dopadl.“</blockquote>
           <figcaption><b>Jméno klienta · role, firma</b><span class="tag b2b">Pro firmy</span><span>Vánoční večírek</span></figcaption>
         </figure>
       </div>
@@ -713,7 +711,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
   <section class="s intro" data-label="SL-02 Úvod">
     <p class="crumbs"><a href="#/">Úvod</a> / Služby</p>
     <h1 class="page-title">Služby</h1>
-    <p class="lead">Firemní eventy i soukromé oslavy pro 10 až 450 hostů. Rozbalte službu, která vás zajímá.</p>
+    <p class="lead">Firemní eventy i&nbsp;soukromé oslavy pro 10 až 450 hostů. Rozbalte službu, která vás zajímá.</p>
     <div class="chips" style="margin:28px auto 0">
       <button type="button" class="chip" data-scroll="grp-firmy">Pro firmy</button>
       <button type="button" class="chip" data-scroll="grp-osobne">Pro vás osobně</button>
@@ -733,24 +731,24 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
           <div class="btns"><a class="cta" href="#/kontakt?typ=firemni-eventy">Poptat firemní event</a></div>
         </div>
         <div class="gallery">
-          <div class="ph img"><span>Fotka z firemního eventu</span></div><div class="ph img"><span>Fotka z firemního eventu</span></div>
-          <div class="ph img"><span>Fotka z firemního eventu</span></div><div class="ph img"><span>Fotka z firemního eventu</span></div>
+          <div class="ph img"><span>Fotka z&nbsp;firemního eventu</span></div><div class="ph img"><span>Fotka z&nbsp;firemního eventu</span></div>
+          <div class="ph img"><span>Fotka z&nbsp;firemního eventu</span></div><div class="ph img"><span>Fotka z&nbsp;firemního eventu</span></div>
         </div>
       </div></div>
     </div>
 
     <div class="acc" id="acc-konference-a-business-eventy">
-      <button type="button" class="acc-h" aria-expanded="false"><span class="acc-title">Konference a business eventy</span><span class="acc-sub">Služební cesty · Konference · Veletrhy · Semináře a workshopy · Business snídaně</span><span class="acc-ico" aria-hidden="true">+</span></button>
+      <button type="button" class="acc-h" aria-expanded="false"><span class="acc-title">Konference a&nbsp;business eventy</span><span class="acc-sub">Služební cesty · Konference · Veletrhy · Semináře a&nbsp;workshopy · Business snídaně</span><span class="acc-ico" aria-hidden="true">+</span></button>
       <div class="acc-b"><div class="acc-grid">
         <div>
           <div class="ph txt"><span>Krátký popis kategorie, 2–3 věty: pro koho, co zajistíte, typický rozsah.</span></div>
           <h4>Typy eventů</h4>
-          <ul class="list"><li>Služební cesty</li><li>Konference</li><li>Veletrhy</li><li>Semináře a workshopy</li><li>Business snídaně</li></ul>
+          <ul class="list"><li>Služební cesty</li><li>Konference</li><li>Veletrhy</li><li>Semináře a&nbsp;workshopy</li><li>Business snídaně</li></ul>
           <div class="btns"><a class="cta" href="#/kontakt?typ=konference-a-business-eventy">Poptat business event</a></div>
         </div>
         <div class="gallery">
-          <div class="ph img"><span>Fotka z konference</span></div><div class="ph img"><span>Fotka z konference</span></div>
-          <div class="ph img"><span>Fotka z konference</span></div><div class="ph img"><span>Fotka z konference</span></div>
+          <div class="ph img"><span>Fotka z&nbsp;konference</span></div><div class="ph img"><span>Fotka z&nbsp;konference</span></div>
+          <div class="ph img"><span>Fotka z&nbsp;konference</span></div><div class="ph img"><span>Fotka z&nbsp;konference</span></div>
         </div>
       </div></div>
     </div>
@@ -759,14 +757,14 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
       <button type="button" class="acc-h" aria-expanded="false"><span class="acc-title">Reklamní materiál</span><span class="acc-sub">Reklamní předměty · Tiskoviny · Grafika</span><span class="acc-ico" aria-hidden="true">+</span></button>
       <div class="acc-b"><div class="acc-grid">
         <div>
-          <div class="ph txt"><span>Krátký popis kategorie, 2–3 věty: co vyrobíte, k jakým eventům, jak dlouho to trvá.</span></div>
+          <div class="ph txt"><span>Krátký popis kategorie, 2–3 věty: co vyrobíte, k&nbsp;jakým eventům, jak dlouho to trvá.</span></div>
           <h4>Co zajistíme</h4>
           <ul class="list"><li>Reklamní předměty</li><li>Tiskoviny</li><li>Grafika</li></ul>
           <div class="btns"><a class="cta" href="#/kontakt?typ=reklamni-material">Poptat reklamní materiál</a></div>
         </div>
         <div class="gallery">
           <div class="ph img"><span>Ukázka reklamních předmětů</span></div><div class="ph img"><span>Ukázka tiskovin</span></div>
-          <div class="ph img"><span>Ukázka grafiky</span></div><div class="ph img"><span>Ukázka z eventu</span></div>
+          <div class="ph img"><span>Ukázka grafiky</span></div><div class="ph img"><span>Ukázka z&nbsp;eventu</span></div>
         </div>
       </div></div>
     </div>
@@ -785,8 +783,8 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
           <div class="btns"><a class="cta" href="#/kontakt?typ=oslavy">Poptat oslavu</a></div>
         </div>
         <div class="gallery">
-          <div class="ph img"><span>Fotka z oslavy</span></div><div class="ph img"><span>Fotka z oslavy</span></div>
-          <div class="ph img"><span>Fotka z oslavy</span></div><div class="ph img"><span>Fotka z oslavy</span></div>
+          <div class="ph img"><span>Fotka z&nbsp;oslavy</span></div><div class="ph img"><span>Fotka z&nbsp;oslavy</span></div>
+          <div class="ph img"><span>Fotka z&nbsp;oslavy</span></div><div class="ph img"><span>Fotka z&nbsp;oslavy</span></div>
         </div>
       </div></div>
     </div>
@@ -795,10 +793,10 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
       <button type="button" class="acc-h" aria-expanded="false"><span class="acc-title">Svatby</span><span class="acc-sub">Rozlučka se svobodou · Zásnuby · Svatba · Svatební cesta</span><span class="acc-ico" aria-hidden="true">+</span></button>
       <div class="acc-b"><div class="acc-grid">
         <div>
-          <div class="ph txt"><span>Krátký popis kategorie, 2–3 věty: jak s páry pracujete, koordinace ve svatební den.</span></div>
+          <div class="ph txt"><span>Krátký popis kategorie, 2–3 věty: jak s&nbsp;páry pracujete, koordinace ve svatební den.</span></div>
           <h4>Typy eventů</h4>
           <ul class="list"><li>Rozlučka se svobodou</li><li>Zásnuby</li><li>Svatba</li><li>Svatební cesta</li></ul>
-          <div class="ph txt" style="margin-top:20px"><span>Svatební balíčky (např. PREMIUM: kompletní příprava svatby) a co obsahují</span></div>
+          <div class="ph txt" style="margin-top:20px"><span>Svatební balíčky (např. PREMIUM: kompletní příprava svatby) a&nbsp;co obsahují</span></div>
           <div class="btns"><a class="cta" href="#/kontakt?typ=svatby">Poptat svatbu</a></div>
         </div>
         <div class="gallery">
@@ -809,16 +807,16 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
     </div>
 
     <div class="acc missing" id="acc-pujcovna">
-      <button type="button" class="acc-h" aria-expanded="false"><span class="acc-title">Půjčovna</span><span class="acc-sub">Co se půjčuje a za jakých podmínek</span><span class="acc-ico" aria-hidden="true">+</span></button>
+      <button type="button" class="acc-h" aria-expanded="false"><span class="acc-title">Půjčovna</span><span class="acc-sub">Co se půjčuje a&nbsp;za jakých podmínek</span><span class="acc-ico" aria-hidden="true">+</span></button>
       <div class="acc-b"><div class="acc-grid">
-        <div class="ph txt"><span>Co se půjčuje, katalog nebo ceník a jak se objednává.</span></div>
+        <div class="ph txt"><span>Co se půjčuje, katalog nebo ceník a&nbsp;jak se objednává.</span></div>
         <div class="gallery"><div class="ph img"><span>Fotky vybavení</span></div><div class="ph img"><span>Fotky vybavení</span></div></div>
       </div></div>
     </div>
   </section>
 
   <section class="s" data-label="SL-05 Jak to probíhá">
-    <h2>Jak to probíhá</h2>
+    <h2>Jak probíhá spolupráce s&nbsp;námi</h2>
     <div data-slot="process"></div>
   </section>
 
@@ -833,7 +831,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
   <section class="s intro" data-label="RF-02 Úvod">
     <p class="crumbs"><a href="#/">Úvod</a> / Reference</p>
     <h1 class="page-title">Reference</h1>
-    <p class="lead">Vybrané eventy, které jsme připravili pro firmy i soukromé klienty.</p>
+    <p class="lead">Vybrané eventy, které jsme připravili pro firmy i&nbsp;soukromé klienty.</p>
   </section>
 
   <section class="s" data-label="RF-03 Realizace">
@@ -851,19 +849,24 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
   </section>
 
   <section class="s band" data-label="RF-04 Ohlasy">
-    <h2 style="margin-bottom:40px">Co říkají klienti</h2>
+    <h2 style="margin-bottom:40px">Co říkají naši klienti?</h2>
     <div class="cards c3">
-      <div class="ph" style="min-height:220px"><span>Citace klienta: 2–3 věty, jméno a typ eventu</span></div>
-      <div class="ph" style="min-height:220px"><span>Reference od klienta: 2–3 věty, jméno a typ eventu</span></div>
-      <div class="ph" style="min-height:220px"><span>Reference od klienta: 2–3 věty, jméno a typ eventu</span></div>
+      <div class="ph" style="min-height:220px"><span>Citace klienta: 2–3 věty, jméno a&nbsp;typ eventu</span></div>
+      <div class="ph" style="min-height:220px"><span>Reference od klienta: 2–3 věty, jméno a&nbsp;typ eventu</span></div>
+      <div class="ph" style="min-height:220px"><span>Reference od klienta: 2–3 věty, jméno a&nbsp;typ eventu</span></div>
     </div>
   </section>
 
-  <section class="s" data-label="RF-05 Klienti">
-    <p class="kicker" style="margin-bottom:24px">Pracovali jsme pro</p>
-    <ul class="logo-row">
-      <li class="logo-big">Samsung</li><li class="logo-big">Setos</li><li class="logo-big">Bonveno</li><li class="logo-big">Jíša</li><li class="logo-big">Albi</li>
-    </ul>
+  <section class="s logos" data-label="RF-05 Klienti">
+    <p class="kicker">Pracovali jsme pro</p>
+    <div class="marquee big"><div class="track">
+      <span class="logo-big">Samsung</span><span class="logo-big">Setos</span><span class="logo-big">Bonveno</span><span class="logo-big">Jíša</span><span class="logo-big">Albi</span>
+      <span class="logo-big" aria-hidden="true">Samsung</span><span class="logo-big" aria-hidden="true">Setos</span><span class="logo-big" aria-hidden="true">Bonveno</span><span class="logo-big" aria-hidden="true">Jíša</span><span class="logo-big" aria-hidden="true">Albi</span>
+    </div></div>
+    <div class="marquee big rev" aria-hidden="true"><div class="track">
+      <span class="logo-big">Jíša</span><span class="logo-big">Albi</span><span class="logo-big">Samsung</span><span class="logo-big">Bonveno</span><span class="logo-big">Setos</span>
+      <span class="logo-big" aria-hidden="true">Jíša</span><span class="logo-big" aria-hidden="true">Albi</span><span class="logo-big" aria-hidden="true">Samsung</span><span class="logo-big" aria-hidden="true">Bonveno</span><span class="logo-big" aria-hidden="true">Setos</span>
+    </div></div>
   </section>
 
   <div data-slot="cta"></div>
@@ -876,14 +879,14 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
   <div data-slot="header"></div>
 
   <section class="s intro" data-label="ON-02 Úvod">
-    <p class="crumbs"><a href="#/">Úvod</a> / O nás</p>
-    <h1 class="page-title">O nás</h1>
-    <p class="lead">Jsme Happy People. Eventová agentura v srdci Karlína.</p>
+    <p class="crumbs"><a href="#/">Úvod</a> / O&nbsp;nás</p>
+    <h1 class="page-title">O&nbsp;nás</h1>
+    <p class="lead">Jsme Happy People. Eventová agentura v&nbsp;srdci Karlína.</p>
   </section>
 
   <section class="s" data-label="ON-03 Příběh">
     <div class="split">
-      <div class="ph img"><span>Fotka týmu v kanceláři v Karlíně</span></div>
+      <div class="ph img"><span>Fotka týmu v&nbsp;kanceláři v&nbsp;Karlíně</span></div>
       <div>
         <h2>Jak to začalo</h2>
         <div class="ph txt" style="margin-top:20px;min-height:180px"><span>Příběh agentury: začátky, kdo za Happy stojí, proč Karlín, co vás na eventech baví. Krátké odstavce, žádná textová zeď.</span></div>
@@ -905,9 +908,9 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
   </section>
 
   <section class="s" data-label="ON-05 Hodnoty">
-    <h2 style="margin-bottom:40px">Na čem nám záleží</h2>
+    <h2 style="margin-bottom:40px">Na čem si zakládáme</h2>
     <div class="values">
-      <div class="val">Přátelský a vstřícný přístup</div>
+      <div class="val">Přátelský a&nbsp;vstřícný přístup</div>
       <div class="val missing">Hodnota</div>
       <div class="val missing">Hodnota</div>
       <div class="val missing">Hodnota</div>
@@ -916,7 +919,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
 
   <section class="s" data-label="ON-06 Tým">
     <h2>Happy People</h2>
-    <p class="lead">Lidé, se kterými budete event připravovat.</p>
+    <p class="lead">Lidé, kteří stojí za Happy Production.</p>
     <div class="cards c4" style="margin-top:40px">
       <div class="member"><div class="ph img r34"><b>Fotka</b></div><div class="ph txt line"><b>Jméno · role</b></div><div class="ph txt line"><span>Jedna lidská věta</span></div></div>
       <div class="member"><div class="ph img r34"><b>Fotka</b></div><div class="ph txt line"><b>Jméno · role</b></div><div class="ph txt line"><span>Jedna lidská věta</span></div></div>
@@ -947,7 +950,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
           <select id="f-typ" name="typ">
             <option value="">Vyberte…</option>
             <option value="firemni-eventy">Firemní eventy</option>
-            <option value="konference-a-business-eventy">Konference a business eventy</option>
+            <option value="konference-a-business-eventy">Konference a&nbsp;business eventy</option>
             <option value="reklamni-material">Reklamní materiál</option>
             <option value="oslavy">Oslavy</option>
             <option value="svatby">Svatby</option>
@@ -984,16 +987,16 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
           <label for="f-mail">E-mail <span class="req">*</span></label>
           <input id="f-mail" type="email" name="email" autocomplete="email">
         </div>
-        <p class="form-hint">Údaje použijeme jen k odpovědi na poptávku. Více v <a href="#/ochrana-osobnich-udaju">Ochraně osobních údajů</a></p>
+        <p class="form-hint">Údaje použijeme jen k&nbsp;odpovědi na poptávku. Více v <a href="#/ochrana-osobnich-udaju">Ochraně osobních údajů</a></p>
         <div class="field full"><button class="cta cta-plain" type="submit">Odeslat poptávku</button></div>
       </form>
       <aside class="aside">
         <div class="card">
           <h3>Happy Production</h3>
-          <div class="ph txt" style="width:100%"><span>Telefon, e-mail, adresa v Karlíně, IČO</span></div>
-          <p class="small">Ozveme se vám a domluvíme detaily.</p>
+          <div class="ph txt" style="width:100%"><span>Telefon, e-mail, adresa v&nbsp;Karlíně, IČO</span></div>
+          <p class="small">Ozveme se vám a&nbsp;domluvíme detaily.</p>
         </div>
-        <div class="ph img r11"><b>Mapa</b><span>Kancelář v Karlíně</span></div>
+        <div class="ph img r11"><b>Mapa</b><span>Kancelář v&nbsp;Karlíně</span></div>
       </aside>
     </div>
   </section>
@@ -1006,12 +1009,12 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
 <main class="page" data-page="dekujeme" hidden>
   <div data-slot="header"></div>
   <section class="s" data-label="DK-02 Potvrzení">
-    <h1 class="page-title">Děkujeme, poptávka je u nás.</h1>
+    <h1 class="page-title">Děkujeme, poptávka je u&nbsp;nás.</h1>
     <h2 style="font-size:22px;margin-top:44px">Co bude dál</h2>
     <ol class="steps" style="grid-template-columns:repeat(3,1fr);margin-top:20px">
-      <li class="step"><span class="n">01</span><h3>Ozveme se</h3><p>Ozveme se vám a doptáme se na detaily.</p></li>
+      <li class="step"><span class="n">01</span><h3>Ozveme se</h3><p>Ozveme se vám a&nbsp;doptáme se na detaily.</p></li>
       <li class="step"><span class="n">02</span><h3>Nabídka</h3><p>Připravíme nabídku na míru.</p></li>
-      <li class="step"><span class="n">03</span><h3>Doladění</h3><p>Nabídku spolu doladíme a vy ji schválíte.</p></li>
+      <li class="step"><span class="n">03</span><h3>Doladění</h3><p>Nabídku spolu doladíme a&nbsp;vy ji schválíte.</p></li>
     </ol>
     <div class="btns">
       <a class="link" href="#/reference">Prohlédnout reference →</a>
@@ -1029,9 +1032,9 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
     <h1 class="page-title" id="legal-title">Ochrana osobních údajů</h1>
     <p class="small" style="margin-top:12px">Platné od: <span class="ph-bar"></span></p>
     <div class="legal-grid" style="margin-top:40px">
-      <div class="ph txt"><b>Obsah</b><span>Odkazy na kapitoly, generované z nadpisů</span></div>
+      <div class="ph txt"><b>Obsah</b><span>Odkazy na kapitoly, generované z&nbsp;nadpisů</span></div>
       <div class="legal-body">
-        <div class="ph txt"><span>Právní text. Krátké kapitoly s nadpisy.</span></div>
+        <div class="ph txt"><span>Právní text. Krátké kapitoly s&nbsp;nadpisy.</span></div>
         <div class="ph txt"><span>Kapitola</span></div>
         <div class="ph txt"><span>Kapitola</span></div>
         <div><button type="button" class="btn btn-sec" id="legal-cookie-btn" hidden>Změnit nastavení cookies</button></div>
@@ -1062,22 +1065,22 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
   <section class="s">
     <p class="kicker">Jen pro review, není součást webu</p>
     <h1 class="page-title" style="margin-top:12px">Přehled</h1>
-    <p class="lead">Low-fi wireframy webu. Řeší strukturu, pořadí obsahu a chování. Barvy, fotky a finální texty přijdou v designu.</p>
+    <p class="lead">Low-fi wireframy webu. Řeší strukturu, pořadí obsahu a&nbsp;chování. Barvy, fotky a&nbsp;finální texty přijdou v&nbsp;designu.</p>
 
     <h2 style="font-size:24px;margin-top:56px">Stránky</h2>
     <div class="ov-grid">
       <a href="#/"><b>Homepage</b><span>12 sekcí od hero po patičku</span></a>
       <a href="#/sluzby"><b>Služby</b><span>5 rozbalovacích boxů + Půjčovna</span></a>
-      <a href="#/reference"><b>Reference</b><span>Realizace s filtrem, ohlasy, klienti</span></a>
-      <a href="#/o-nas"><b>O nás</b><span>Příběh, čísla, hodnoty, tým</span></a>
+      <a href="#/reference"><b>Reference</b><span>Realizace s&nbsp;filtrem, ohlasy, klienti</span></a>
+      <a href="#/o-nas"><b>O&nbsp;nás</b><span>Příběh, čísla, hodnoty, tým</span></a>
       <a href="#/kontakt"><b>Kontakt</b><span>Poptávkový formulář, kontakty, FAQ</span></a>
       <a href="#/neexistuje"><b>404</b><span>Neexistující stránka</span></a>
     </div>
 
     <div class="js-ask-wrap" hidden>
-      <h2 style="font-size:24px;margin-top:56px">Dotazy a poznámky</h2>
+      <h2 style="font-size:24px;margin-top:56px">Dotazy a&nbsp;poznámky</h2>
       <div class="ask-box">
-        <p>Máte dotaz nebo poznámku, která nepatří k jednomu místu ve wireframu? Napište ji sem. K&nbsp;čemukoli konkrétnímu můžete psát přímo na místě přes tlačítko Komentovat v&nbsp;horní liště.</p>
+        <p>Máte dotaz nebo poznámku, která nepatří k&nbsp;jednomu místu ve wireframu? Napište ji sem. K&nbsp;čemukoli konkrétnímu můžete psát přímo na místě přes tlačítko Komentovat v&nbsp;horní liště.</p>
         <button type="button" class="btn btn-sec js-ask">Napsat dotaz</button>
       </div>
     </div>
@@ -1092,14 +1095,14 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
 /o-nas/                     Příběh, čísla, hodnoty, tým
 /kontakt/                   Poptávkový formulář + kontakty + FAQ
 404</pre>
-    <p class="small" style="margin-top:20px">Ve wireframu se stránky přepínají přes # v adrese, na skutečném webu budou adresy bez #. Formulář nic neodesílá.</p>
+    <p class="small" style="margin-top:20px">Ve wireframu se stránky přepínají přes # v&nbsp;adrese, na skutečném webu budou adresy bez #. Formulář nic neodesílá.</p>
   </section>
 </main>
 
 </div><!-- /site -->
 
 <div class="cookie" id="cookie" role="dialog" aria-label="Nastavení cookies">
-  <p>Tento web používá cookies. Nezbytné jsou vždy zapnuté, ostatní jen s vaším souhlasem. <a href="#/cookies">Zásady cookies</a></p>
+  <p>Tento web používá cookies. Nezbytné jsou vždy zapnuté, ostatní jen s&nbsp;vaším souhlasem. <a href="#/cookies">Zásady cookies</a></p>
   <div class="btns">
     <button type="button" class="btn btn-sec" data-cookie="odmitnout">Odmítnout</button>
     <button type="button" class="btn btn-sec" data-cookie="nastaveni">Nastavení</button>
@@ -1119,7 +1122,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
           <div class="mm">
             <div class="mm-col"><span class="tag b2b">Pro firmy</span>
               <a href="#/sluzby/firemni-eventy">Firemní eventy</a>
-              <a href="#/sluzby/konference-a-business-eventy">Konference a business eventy</a>
+              <a href="#/sluzby/konference-a-business-eventy">Konference a&nbsp;business eventy</a>
               <a href="#/sluzby/reklamni-material">Reklamní materiál</a>
             </div>
             <div class="mm-col"><span class="tag b2c">Pro vás osobně</span>
@@ -1133,7 +1136,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
           </div>
         </div>
         <a href="#/reference">Reference</a>
-        <a href="#/o-nas">O nás</a>
+        <a href="#/o-nas">O&nbsp;nás</a>
         <a href="#/kontakt">Kontakt</a>
       </nav>
       <a class="cta hdr-cta" href="#/kontakt">Poptat event</a>
@@ -1142,7 +1145,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
     <nav class="mobnav" aria-label="Mobilní navigace">
       <p class="mob-group"><span class="tag b2b">Pro firmy</span></p>
       <a href="#/sluzby/firemni-eventy">Firemní eventy</a>
-      <a href="#/sluzby/konference-a-business-eventy">Konference a business eventy</a>
+      <a href="#/sluzby/konference-a-business-eventy">Konference a&nbsp;business eventy</a>
       <a href="#/sluzby/reklamni-material">Reklamní materiál</a>
       <p class="mob-group"><span class="tag b2c">Pro vás osobně</span></p>
       <a href="#/sluzby/oslavy">Oslavy</a>
@@ -1150,7 +1153,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
       <a href="#/sluzby/pujcovna">Půjčovna</a>
       <p class="mob-group"></p>
       <a href="#/reference">Reference</a>
-      <a href="#/o-nas">O nás</a>
+      <a href="#/o-nas">O&nbsp;nás</a>
       <a href="#/kontakt">Kontakt</a>
       <a class="cta" href="#/kontakt">Poptat event</a>
     </nav>
@@ -1159,9 +1162,9 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
 
 <template id="t-process">
   <ol class="steps">
-    <li class="step"><span class="n">01</span><h3>Poptávka</h3><p>Vyplníte krátký formulář: typ eventu, místo, datum, počet hostů a rozpočet.</p></li>
+    <li class="step"><span class="n">01</span><h3>Poptávka</h3><p>Vyplníte krátký formulář: typ eventu, místo, datum, počet hostů a&nbsp;rozpočet.</p></li>
     <li class="step"><span class="n">02</span><h3>Nabídka</h3><p>Připravíme nabídku na míru.</p></li>
-    <li class="step"><span class="n">03</span><h3>Doladění a schválení</h3><p>Nabídku schválíte, nebo ji společně upravíme.</p></li>
+    <li class="step"><span class="n">03</span><h3>Doladění a&nbsp;schválení</h3><p>Nabídku schválíte, nebo ji společně upravíme.</p></li>
     <li class="step"><span class="n">04</span><h3>Příprava</h3><p>Zajistíme vše domluvené. Těsně před eventem vám pošleme potvrzovací e-mail.</p></li>
     <li class="step"><span class="n">05</span><h3>Realizace</h3><p>Event proběhne podle schváleného plánu.</p></li>
   </ol>
@@ -1177,10 +1180,10 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
       </div>
       <div>
         <div class="faq-item open"><button type="button" class="faq-q" aria-expanded="true">Jak dlouho dopředu je potřeba event poptat?</button><div class="faq-a"><div class="ph txt"><span>Odpověď, 1–3 věty</span></div></div></div>
-        <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">Jezdíte i mimo Prahu?</button><div class="faq-a"><div class="ph txt"><span>Odpověď, 1–3 věty</span></div></div></div>
-        <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">Další otázka</button><div class="faq-a"><div class="ph txt"><span>Otázka a odpověď</span></div></div></div>
-        <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">Další otázka</button><div class="faq-a"><div class="ph txt"><span>Otázka a odpověď</span></div></div></div>
-        <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">Další otázka</button><div class="faq-a"><div class="ph txt"><span>Otázka a odpověď</span></div></div></div>
+        <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">Jezdíte i&nbsp;mimo Prahu?</button><div class="faq-a"><div class="ph txt"><span>Odpověď, 1–3 věty</span></div></div></div>
+        <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">Další otázka</button><div class="faq-a"><div class="ph txt"><span>Otázka a&nbsp;odpověď</span></div></div></div>
+        <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">Další otázka</button><div class="faq-a"><div class="ph txt"><span>Otázka a&nbsp;odpověď</span></div></div></div>
+        <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">Další otázka</button><div class="faq-a"><div class="ph txt"><span>Otázka a&nbsp;odpověď</span></div></div></div>
       </div>
     </div>
   </section>
@@ -1191,7 +1194,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
     <div class="cta2-grid">
       <h2 class="cta2-h"><span aria-hidden="true">Plánujete<br><span class="claim-word js-word js-cta-word">event?</span></span><span class="sr-only">Plánujete event?</span></h2>
       <div class="cta2-act">
-        <p class="cta2-lead">Pošlete nám pár základních údajů a připravíme nabídku na míru.</p>
+        <p class="cta2-lead">Pošlete nám pár základních údajů a&nbsp;připravíme nabídku na míru.</p>
         <div class="btns"><a class="cta" href="#/kontakt">Poptat event</a></div>
         <p class="cta2-tel">nebo zavolejte <a class="link" href="tel:"><span class="ph-bar"></span> →</a></p>
       </div>
@@ -1204,11 +1207,11 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
     <div class="ftr-grid">
       <div>
         <a class="logo" href="#/" aria-label="Happy Production, úvod"><svg class="logo-svg" viewBox="0 0 528.529296875 103.970703125" aria-hidden="true" focusable="false"><use href="#hp-logo"/></svg></a>
-        <p>Eventová agentura v srdci Karlína. Děláme eventy, ze kterých odcházíte happy.</p>
+        <p>Eventová agentura v&nbsp;srdci Karlína.<br>Děláme eventy, ze kterých odcházíte happy.</p>
       </div>
       <div>
         <h4>Pro firmy</h4>
-        <ul><li><a href="#/sluzby/firemni-eventy">Firemní eventy</a></li><li><a href="#/sluzby/konference-a-business-eventy">Konference a business eventy</a></li><li><a href="#/sluzby/reklamni-material">Reklamní materiál</a></li></ul>
+        <ul><li><a href="#/sluzby/firemni-eventy">Firemní eventy</a></li><li><a href="#/sluzby/konference-a-business-eventy">Konference a&nbsp;business eventy</a></li><li><a href="#/sluzby/reklamni-material">Reklamní materiál</a></li></ul>
       </div>
       <div>
         <h4>Pro vás osobně</h4>
@@ -1216,7 +1219,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
       </div>
       <div>
         <h4>Kontakt</h4>
-        <div class="ph txt"><span>Telefon · e-mail · adresa v Karlíně · odkazy na sítě</span></div>
+        <div class="ph txt"><span>Telefon · e-mail · adresa v&nbsp;Karlíně · odkazy na sítě</span></div>
       </div>
     </div>
     <div class="ftr-bottom">
@@ -1528,7 +1531,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
     ['#acc-firemni-eventy .acc-h', 'Q03'], ['#acc-konference-a-business-eventy .acc-h', 'Q01 Q03'],
     ['#acc-reklamni-material .acc-h', 'Q03'], ['#acc-oslavy .acc-h', 'Q03'],
     ['#acc-svatby .acc-h', 'Q03 Q15'], ['#acc-pujcovna .acc-h', 'Q02'],
-    ['.case-grid', 'Q07'], ['[data-label^="RF-04"] .cards', 'Q05'], ['.logo-row', 'Q08'],
+    ['.case-grid', 'Q07'], ['[data-label^="RF-04"] .cards', 'Q05'], ['[data-label^="RF-05"] .kicker', 'Q08'],
     ['[data-label^="ON-03"] .split .ph.txt', 'Q22'],
     ['.values', 'Q21'], ['[data-label^="ON-06"] .cards', 'Q09'],
     ['.aside .card', 'Q11 Q14 Q23'], ['.aside > .ph.img', 'Q11'], ['.field:has(#f-rozpocet)', 'Q18'],
