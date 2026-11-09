@@ -194,7 +194,7 @@ h3{font-size:21px;font-weight:600}
 .chip.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 
 /* Průběh */
-.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:44px}
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;margin-top:44px}
 .step{position:relative;border-top:2px solid var(--ink);padding-top:16px}
 .step:not(:last-child)::after{content:"→";position:absolute;top:-12px;right:-17px;width:14px;text-align:center;font:400 18px/22px var(--f-body);color:var(--ink-2)}
 .step .n,.step-opt .n{font:600 13px/1 var(--f-mono);color:var(--ink-3)}
@@ -211,6 +211,10 @@ h3{font-size:21px;font-weight:600}
 .val.missing{border-style:dashed;background:repeating-linear-gradient(-45deg,transparent 0 9px,rgba(0,0,0,.045) 9px 10px),var(--block);font:600 11px/1.3 var(--f-mono);color:var(--ink-2)}
 .team-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:48px}
 .member{display:flex;flex-direction:column;gap:8px}
+.member-name{margin-top:6px;font:600 17px/1.3 var(--f-head)}
+.member-line{font-size:14.5px;color:var(--ink-2)}
+.story-txt{margin-top:20px;display:flex;flex-direction:column;gap:14px;font:300 18px/1.55 var(--f-body);max-width:56ch}
+.story-txt .ph.line{font-size:14px}
 .member .ph.line{min-height:0}
 
 /* Ohlasy */
@@ -273,6 +277,8 @@ h3{font-size:21px;font-weight:600}
 .check input{width:auto}
 .aside{display:flex;flex-direction:column;gap:16px;position:sticky;top:140px}
 .aside .card{gap:10px}
+.contact-list{display:flex;flex-direction:column;gap:6px;font-size:15px}
+.contact-list .link{white-space:normal}
 
 /* Právní stránky, 404 */
 .legal-grid{display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:start}
@@ -337,6 +343,8 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
 .cta2-lead{font:300 clamp(18px,1.9cqi,22px)/1.4 var(--f-body);color:var(--ink);max-width:34ch}
 .cta2 .btns{margin-top:22px}
 .cta2-tel{margin-top:16px;font:400 15px/1.4 var(--f-body);color:var(--ink-2)}
+.cta2-note{margin-top:16px;font:400 15px/1.4 var(--f-body);color:var(--ink)}
+.cta2-note+.cta2-tel{margin-top:6px}
 .cta2-tel .link{margin-left:4px;color:var(--ink)}
 .cta2 .ph-bar{background:repeating-linear-gradient(-45deg,transparent 0 6px,rgba(0,0,0,.08) 6px 7px),rgba(255,255,255,.4)}
 @container site (max-width:760px){
@@ -354,7 +362,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
 .about3-in{position:relative;z-index:2;width:100%;max-width:calc(var(--max) + 2 * var(--gutter));margin:0 auto;padding:96px var(--gutter) clamp(36px,4.6cqi,64px)}
 .about3 h2{font:700 clamp(48px,6.4cqi,96px)/.95 var(--f-head);letter-spacing:-.04em;color:var(--on-photo)}
 .about3-sub{margin-top:10px;font:300 clamp(20px,2.4cqi,30px)/1.25 var(--f-body);color:var(--on-photo)}
-.about3-story{margin-top:22px;max-width:520px;min-height:88px;border-color:rgba(239,238,234,.4);background:rgba(255,255,255,.08);color:var(--on-photo-2)}
+.about3-story{margin-top:22px;max-width:520px;font:300 clamp(16px,1.5cqi,19px)/1.5 var(--f-body);color:var(--on-photo-2)}
 .about3 .link{display:inline-block;margin-top:22px;color:var(--on-photo)}
 .about3-vals{padding:clamp(40px,5cqi,72px) var(--gutter) clamp(64px,8cqi,104px)}
 .vals3{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
@@ -658,7 +666,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
 
   <section class="s" data-label="HP-07 Jak to probíhá">
     <h2>Jak probíhá spolupráce s&nbsp;námi</h2>
-    <p class="lead">Pět kroků od poptávky po event.</p>
+    <p class="lead">Šest kroků od poptávky po zpětnou vazbu.</p>
     <div data-slot="process"></div>
   </section>
 
@@ -669,7 +677,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
       <div class="about3-in">
         <h2>Jsme Happy Production.</h2>
         <p class="about3-sub">Vaše eventovka v&nbsp;srdci Karlína.</p>
-        <div class="ph txt about3-story"><span>Krátký příběh: od kdy fungujeme, kdo za Happy stojí, proč Karlín. 2–3 věty.</span></div>
+        <p class="about3-story">Náš tým tvoří energičtí a&nbsp;přátelští lidé, kteří mají rádi výzvy. Svou práci děláme profesionálně, s&nbsp;úsměvem a&nbsp;radostí.</p>
         <a class="link" href="#/o-nas">Poznejte nás →</a>
       </div>
     </div>
@@ -903,7 +911,11 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
       <div class="ph img"><span>Fotka týmu v&nbsp;kanceláři v&nbsp;Karlíně</span></div>
       <div>
         <h2>Jak to začalo</h2>
-        <div class="ph txt" style="margin-top:20px;min-height:180px"><span>Příběh agentury: začátky, kdo za Happy stojí, proč Karlín, co vás na eventech baví. Krátké odstavce, žádná textová zeď.</span></div>
+        <div class="story-txt">
+          <p>Jsme eventová agentura s&nbsp;dlouholetými zkušenostmi v&nbsp;marketingu a&nbsp;organizaci eventů. Náš tým tvoří energičtí a&nbsp;přátelští lidé, kteří mají rádi výzvy.</p>
+          <p>Svou práci děláme profesionálně, s&nbsp;úsměvem a&nbsp;radostí. Naším cílem je spokojený klient, zážitek, na který se nezapomíná, a&nbsp;kvalitně odvedená práce.</p>
+          <div class="ph txt line"><span>Od kdy fungujeme a&nbsp;proč Karlín</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -934,7 +946,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
     <h2>Happy People</h2>
     <p class="lead">Lidé, kteří stojí za Happy Production.</p>
     <div class="cards c4" style="margin-top:40px">
-      <div class="member"><div class="ph img r34"><b>Fotka</b></div><div class="ph txt line"><b>Jméno · role</b></div><div class="ph txt line"><span>Jedna lidská věta</span></div></div>
+      <div class="member"><div class="ph img r34"><b>Fotka</b></div><p class="member-name">Petr Lízálek · <span class="ph-bar" title="role"></span></p><p class="member-line">Lidský šéf, který umí naslouchat potřebám klienta.</p></div>
       <div class="member"><div class="ph img r34"><b>Fotka</b></div><div class="ph txt line"><b>Jméno · role</b></div><div class="ph txt line"><span>Jedna lidská věta</span></div></div>
       <div class="member"><div class="ph img r34"><b>Fotka</b></div><div class="ph txt line"><b>Jméno · role</b></div><div class="ph txt line"><span>Jedna lidská věta</span></div></div>
       <div class="member"><div class="ph img r34"><b>Fotka</b></div><div class="ph txt line"><b>Jméno · role</b></div><div class="ph txt line"><span>Jedna lidská věta</span></div></div>
@@ -990,7 +1002,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
         </div>
         <div class="field">
           <label for="f-rozpocet">Finanční rozpočet</label>
-          <input id="f-rozpocet" type="text" name="rozpocet" placeholder="Orientační částka">
+          <input id="f-rozpocet" type="text" name="rozpocet" placeholder="Vaše představa, klidně orientačně">
         </div>
         <div class="field full">
           <label for="f-popis">Krátký popis</label>
@@ -1010,10 +1022,19 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
       <aside class="aside">
         <div class="card">
           <h3>Happy Production</h3>
-          <div class="ph txt" style="width:100%"><span>Telefon, e-mail, adresa v&nbsp;Karlíně, IČO</span></div>
-          <p class="small">Ozveme se vám a&nbsp;domluvíme detaily.</p>
+          <ul class="contact-list">
+            <li><a class="link" href="tel:+420602339569">+420&nbsp;602&nbsp;339&nbsp;569</a></li>
+            <li><a class="link" href="mailto:info@happyproduction.cz">info@happyproduction.cz</a></li>
+            <li>Šaldova 419/16, Praha&nbsp;8&nbsp;–&nbsp;Karlín</li>
+            <li class="small">IČO: <span class="ph-bar"></span></li>
+          </ul>
+          <p class="small">Do 3&nbsp;pracovních dnů se vám ozveme, doptáme se na detaily a&nbsp;domluvíme, kdy dostanete nabídku.</p>
         </div>
-        <div class="ph img r11"><b>Mapa</b><span>Kancelář v&nbsp;Karlíně</span></div>
+        <div class="card">
+          <h3>Přijďte za námi do Karlína</h3>
+          <p>Na schůzku můžete přijít k&nbsp;nám do kanceláře. První schůzka je nezávazná a&nbsp;zdarma.</p>
+        </div>
+        <div class="ph img r11"><b>Mapa</b><span>Šaldova 419/16, Praha&nbsp;8&nbsp;–&nbsp;Karlín</span></div>
       </aside>
     </div>
   </section>
@@ -1029,7 +1050,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
     <h1 class="page-title">Děkujeme, poptávka je u&nbsp;nás.</h1>
     <h2 style="font-size:22px;margin-top:44px">Co bude dál</h2>
     <ol class="steps" style="grid-template-columns:repeat(3,1fr);margin-top:20px">
-      <li class="step"><span class="n">01</span><h3>Ozveme se</h3><p>Ozveme se vám a&nbsp;doptáme se na detaily.</p></li>
+      <li class="step"><span class="n">01</span><h3>Ozveme se</h3><p>Do 3&nbsp;pracovních dnů se vám ozveme, doptáme se na detaily a&nbsp;domluvíme, kdy dostanete nabídku.</p></li>
       <li class="step"><span class="n">02</span><h3>Nabídka</h3><p>Připravíme nabídku na míru.</p></li>
       <li class="step"><span class="n">03</span><h3>Doladění</h3><p>Nabídku spolu doladíme a&nbsp;vy ji schválíte.</p></li>
     </ol>
@@ -1187,6 +1208,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
     <li class="step"><span class="n">03</span><h3>Doladění a&nbsp;schválení</h3><p>Nabídku schválíte, nebo ji společně upravíme.</p></li>
     <li class="step"><span class="n">04</span><h3>Příprava</h3><p>Zajistíme vše domluvené. Těsně před eventem vám pošleme potvrzovací e-mail.</p></li>
     <li class="step"><span class="n">05</span><h3>Realizace</h3><p>Event proběhne podle schváleného plánu.</p></li>
+    <li class="step"><span class="n">06</span><h3>Zpětná vazba</h3><p>Po eventu si s&nbsp;vámi projdeme, jak se povedl.</p></li>
   </ol>
 </template>
 
@@ -1214,9 +1236,10 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
     <div class="cta2-grid">
       <h2 class="cta2-h"><span aria-hidden="true">Plánujete<br><span class="claim-word js-word js-cta-word">event?</span></span><span class="sr-only">Plánujete event?</span></h2>
       <div class="cta2-act">
-        <p class="cta2-lead">Pošlete nám pár základních údajů a&nbsp;připravíme nabídku na míru.</p>
+        <p class="cta2-lead">Pošlete nám pár základních údajů a&nbsp;připravíme nabídku na míru. Ozveme se do 3&nbsp;pracovních dnů.</p>
         <div class="btns"><a class="cta" href="#/kontakt">Poptat event</a></div>
-        <p class="cta2-tel">nebo zavolejte <a class="link" href="tel:"><span class="ph-bar"></span> →</a></p>
+        <p class="cta2-note">První schůzka je nezávazná a&nbsp;zdarma.</p>
+        <p class="cta2-tel">nebo zavolejte <a class="link" href="tel:+420602339569">+420&nbsp;602&nbsp;339&nbsp;569 →</a></p>
       </div>
     </div>
   </section>
@@ -1241,7 +1264,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
       </div>
       <div>
         <h4>Kontakt</h4>
-        <div class="ph txt"><span>Telefon · e-mail · adresa v&nbsp;Karlíně · odkazy na sítě</span></div>
+        <ul class="ftr-contact"><li><a href="tel:+420602339569">+420&nbsp;602&nbsp;339&nbsp;569</a></li><li><a href="mailto:info@happyproduction.cz">info@happyproduction.cz</a></li><li>Šaldova 419/16<br>Praha&nbsp;8&nbsp;–&nbsp;Karlín</li><li>Sítě: <span class="ph-bar"></span></li></ul>
       </div>
     </div>
     <div class="ftr-bottom">
@@ -1521,8 +1544,6 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
       });
     }, {threshold: .6}).observe(word.closest('h2'));
   });
-  // Číslo zatím nemáme, odkaz na telefon ve wireframu nic nedělá
-  $$('a[href="tel:"]').forEach(function(a){ a.addEventListener('click', function(e){ e.preventDefault(); }); });
 
   // Co doplní klient: na meetingu ukáže, kde chybí obsah od klienta. Najetím na kolečko se ukáže otázka.
   var NEED_Q = {
@@ -1532,34 +1553,29 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
     Q05: 'Recenze od klientů, 2–3 věty, vždy s druhem eventu.',
     Q07: '3–4 realizace: klient, typ eventu, počet hostů, místo, rok a krátký popis.',
     Q08: 'Seznam všech firemních klientů, které chcete v této sekci zmínit.',
-    Q09: 'Tým: jména, role a jedna věta o každém.',
+    Q09: 'Další členové týmu: jméno, role a jedna věta. U Petra Lízálka chybí role.',
     Q10: '5–6 nejčastějších otázek s odpověďmi.',
-    Q11: 'Telefon, e-mail, adresa kanceláře v Karlíně, IČO, odkazy na sítě.',
-    Q12: 'Platí, že první schůzka je nezávazná a zdarma?',
-    Q13: 'Děláte po eventu vyhodnocení s klientem? (6. krok)',
-    Q14: 'Do kdy se ozvete po odeslání poptávky?',
+    Q11: 'Chybí IČO a odkazy na sítě.',
     Q15: 'Svatební balíčky (např. PREMIUM): jaké máte a mají být na webu?',
     Q17: 'Texty Ochrany osobních údajů a zásad cookies.',
-    Q18: 'Rozpočet ve formuláři: volné pole, nebo výběr z rozmezí?',
     Q21: '3–4 hodnoty, kterými se lišíte.',
-    Q22: 'Krátký příběh: od kdy fungujete, kdo za Happy stojí, proč Karlín.',
-    Q23: 'Můžou klienti přijít na schůzku do kanceláře v Karlíně?',
+    Q22: 'Chybí: od kdy fungujete a proč Karlín.',
     Q24: 'Souhlasíte s tlačítkem „Poptat event“ a se slovem „event“ místo „akce“?'
   };
   var NEEDS = [
     ['.hero3 .cta', 'Q24'],
     ['.logos-head', 'Q08'], ['.svc-row[href$="konference-a-business-eventy"]', 'Q01'],
-    ['.works .car-slide:first-child', 'Q07'], ['[data-label*="Jak to probíhá"] .steps', 'Q13'],
-    ['.about3-story', 'Q22'], ['.vals3', 'Q21'],
+    ['.works .car-slide:first-child', 'Q07'],
+    ['.vals3', 'Q21'],
     ['.q2-stage', 'Q05'], ['.faq-wrap > :last-child', 'Q10'],
-    ['.cta2-lead', 'Q12 Q14'], ['.cta2-tel', 'Q11'], ['.ftr-grid > :last-child', 'Q11'],
+    ['.ftr-grid > :last-child', 'Q11'],
     ['#acc-firemni-eventy .acc-h', 'Q03'], ['#acc-konference-a-business-eventy .acc-h', 'Q01 Q03'],
     ['#acc-reklamni-material .acc-h', 'Q03'], ['#acc-oslavy .acc-h', 'Q03'],
     ['#acc-svatby .acc-h', 'Q03 Q15'], ['#acc-pujcovna .acc-h', 'Q02'],
     ['.case-grid', 'Q07'], ['[data-label^="RF-04"] .cards', 'Q05'], ['[data-label^="RF-05"] .kicker', 'Q08'],
     ['[data-label^="ON-03"] .split .ph.txt', 'Q22'],
     ['.values', 'Q21'], ['[data-label^="ON-06"] .cards', 'Q09'],
-    ['.aside .card', 'Q11 Q14 Q23'], ['.aside > .ph.img', 'Q11'], ['.field:has(#f-rozpocet)', 'Q18'],
+    ['.aside .card:first-child', 'Q11'],
     ['.legal-grid', 'Q17']
   ];
   function showNeeds(on){
