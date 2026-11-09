@@ -106,7 +106,7 @@ h3{font-size:21px;font-weight:600}
 .mainnav{display:flex;align-items:center;gap:28px;margin-left:auto}
 .mainnav>a,.mm-btn{font:500 15px/1 var(--f-body);color:var(--ink);text-decoration:none;background:none;border:0;cursor:pointer;padding:8px 0}
 .mm-wrap{position:relative}
-.mm{position:absolute;top:calc(100% + 16px);left:-24px;display:none;grid-template-columns:repeat(3,minmax(170px,1fr));gap:28px;width:660px;padding:24px;background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:0 14px 34px rgba(0,0,0,.09)}
+.mm{position:absolute;top:calc(100% + 16px);right:-24px;display:none;grid-template-columns:repeat(4,minmax(150px,1fr));gap:28px;width:800px;padding:24px;background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:0 14px 34px rgba(0,0,0,.09)}
 .mm::before{content:"";position:absolute;left:0;right:0;top:-18px;height:18px}
 .mm-wrap:hover .mm,.mm-wrap:focus-within .mm,.mm-wrap.open .mm{display:grid}
 .mm-col{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
@@ -287,6 +287,7 @@ h3{font-size:21px;font-weight:600}
 .ftr p{margin-top:16px;font-size:14.5px;opacity:.85;max-width:44ch}
 .ftr h4{font:600 12px/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;opacity:.7;margin-bottom:14px;color:var(--on-dark)}
 .ftr li{padding:4px 0;font-size:14.5px}
+.ftr .ftr-h-next{margin-top:26px}
 .ftr a{text-decoration:none}
 .ftr a:hover{text-decoration:underline}
 .ftr .ph{border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.06);color:var(--on-dark)}
@@ -392,6 +393,8 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
 .svc-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:clamp(28px,3.4cqi,48px)}
 .svc-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(32px,4.4cqi,64px)}
 .svc-col>.tag{margin-bottom:16px}
+.svc-extra{margin-top:clamp(36px,4.4cqi,56px)}
+.svc-extra .svc-list{margin-top:16px}
 .svc-col>.ph.img{aspect-ratio:16/7;border-radius:14px}
 .svc-list{margin-top:24px;border-top:2px solid var(--ink)}
 .svc-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;padding:20px 0;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;transition:padding .25s}
@@ -618,7 +621,6 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
         <div class="svc-list">
         <a class="svc-row" href="#/sluzby/firemni-eventy"><span class="svc-txt"><h3>Firemní eventy</h3><p>Teambuilding · Vánoční večírky · Zaměstnanecké porady · Firemní zájezdy · Eventy pro klienty</p></span><span class="arr" aria-hidden="true">→</span></a>
         <a class="svc-row" href="#/sluzby/konference-a-business-eventy"><span class="svc-txt"><h3>Konference a&nbsp;business eventy</h3><p>Služební cesty · Konference · Veletrhy · Semináře a&nbsp;workshopy · Business snídaně</p></span><span class="arr" aria-hidden="true">→</span></a>
-        <a class="svc-row" href="#/sluzby/reklamni-material"><span class="svc-txt"><h3>Reklamní materiál</h3><p>Reklamní předměty · Tiskoviny · Grafika</p></span><span class="arr" aria-hidden="true">→</span></a>
         </div>
       </div>
       <div class="svc-col">
@@ -628,6 +630,12 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
         <a class="svc-row" href="#/sluzby/oslavy"><span class="svc-txt"><h3>Oslavy</h3><p>Narozeniny · Baby shower · Venkovní party · Výročí · Křtiny</p></span><span class="arr" aria-hidden="true">→</span></a>
         <a class="svc-row" href="#/sluzby/svatby"><span class="svc-txt"><h3>Svatby</h3><p>Rozlučka se svobodou · Zásnuby · Svatba · Svatební cesta</p></span><span class="arr" aria-hidden="true">→</span></a>
         </div>
+      </div>
+    </div>
+    <div class="svc-extra">
+      <span class="tag">Reklama a&nbsp;tisk</span>
+      <div class="svc-list">
+        <a class="svc-row" href="#/sluzby/reklamni-material"><span class="svc-txt"><h3>Reklamní materiál</h3><p>Reklamní předměty · Tiskoviny · Grafika</p></span><span class="arr" aria-hidden="true">→</span></a>
       </div>
     </div>
     <p class="svc-help">Nevíte, kam váš event patří? <a class="link" href="#/kontakt">Napište nám →</a></p>
@@ -1096,10 +1104,10 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
 
     <h2 style="font-size:24px;margin-top:56px">Sitemap</h2>
 <pre class="tree">/                           Homepage
-/sluzby/                    Služby (5 boxů ve dvou skupinách)
-   Pro firmy:  #firemni-eventy · #konference-a-business-eventy · #reklamni-material
-   Pro vás:    #oslavy · #svatby
-               #pujcovna
+/sluzby/                    Služby (5 boxů a&nbsp;Půjčovna ve třech skupinách)
+   Pro firmy:       #firemni-eventy · #konference-a-business-eventy
+   Pro vás:         #oslavy · #svatby · #pujcovna
+   Reklama a&nbsp;tisk:  #reklamni-material
 /reference/                 Realizace + ohlasy + loga
 /o-nas/                     Příběh, čísla, hodnoty, tým
 /kontakt/                   Poptávkový formulář + kontakty + FAQ
@@ -1132,11 +1140,13 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
             <div class="mm-col"><span class="tag b2b">Pro firmy</span>
               <a href="#/sluzby/firemni-eventy">Firemní eventy</a>
               <a href="#/sluzby/konference-a-business-eventy">Konference a&nbsp;business eventy</a>
-              <a href="#/sluzby/reklamni-material">Reklamní materiál</a>
             </div>
             <div class="mm-col"><span class="tag b2c">Pro vás osobně</span>
               <a href="#/sluzby/oslavy">Oslavy</a>
               <a href="#/sluzby/svatby">Svatby</a>
+            </div>
+            <div class="mm-col"><span class="tag">Reklama a&nbsp;tisk</span>
+              <a href="#/sluzby/reklamni-material">Reklamní materiál</a>
             </div>
             <div class="mm-col mm-aside">
               <a href="#/sluzby/pujcovna">Půjčovna</a>
@@ -1155,11 +1165,12 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
       <p class="mob-group"><span class="tag b2b">Pro firmy</span></p>
       <a href="#/sluzby/firemni-eventy">Firemní eventy</a>
       <a href="#/sluzby/konference-a-business-eventy">Konference a&nbsp;business eventy</a>
-      <a href="#/sluzby/reklamni-material">Reklamní materiál</a>
       <p class="mob-group"><span class="tag b2c">Pro vás osobně</span></p>
       <a href="#/sluzby/oslavy">Oslavy</a>
       <a href="#/sluzby/svatby">Svatby</a>
       <a href="#/sluzby/pujcovna">Půjčovna</a>
+      <p class="mob-group"><span class="tag">Reklama a&nbsp;tisk</span></p>
+      <a href="#/sluzby/reklamni-material">Reklamní materiál</a>
       <p class="mob-group"></p>
       <a href="#/reference">Reference</a>
       <a href="#/o-nas">O&nbsp;nás</a>
@@ -1220,7 +1231,9 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
       </div>
       <div>
         <h4>Pro firmy</h4>
-        <ul><li><a href="#/sluzby/firemni-eventy">Firemní eventy</a></li><li><a href="#/sluzby/konference-a-business-eventy">Konference a&nbsp;business eventy</a></li><li><a href="#/sluzby/reklamni-material">Reklamní materiál</a></li></ul>
+        <ul><li><a href="#/sluzby/firemni-eventy">Firemní eventy</a></li><li><a href="#/sluzby/konference-a-business-eventy">Konference a&nbsp;business eventy</a></li></ul>
+        <h4 class="ftr-h-next">Reklama a&nbsp;tisk</h4>
+        <ul><li><a href="#/sluzby/reklamni-material">Reklamní materiál</a></li></ul>
       </div>
       <div>
         <h4>Pro vás osobně</h4>
