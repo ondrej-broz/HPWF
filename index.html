@@ -1690,7 +1690,7 @@ pre.tree{font:13.5px/1.6 var(--f-mono);background:var(--block);border-radius:12p
 
   // Přepínač Wireframe / Design (Ondra 13. 11.). Design je zatím jen pro homepage, na ostatních stránkách je tlačítko Design zašedlé.
   // Volba se pamatuje (v adrese ?v=design, ať jde poslat odkaz rovnou na design, a v prohlížeči). Bez volby se homepage otevře v designu.
-  var DESIGN_SRC = 'design/homepage-design.html', DESIGN_PAGES = {home: 1};
+  var DESIGN_SRC = 'design/homepage-design.html?v=3a7bb748', DESIGN_PAGES = {home: 1};
   var modeBtns = $$('.js-mode button'), frame = $('#designFrame'), wantDesign = true;
   try { var saved = localStorage.getItem('hp-view'); if (saved) wantDesign = saved === 'design'; } catch (e) {}
   function curPage(){ var p = $('.page:not([hidden])'); return p ? p.dataset.page : 'home'; }
