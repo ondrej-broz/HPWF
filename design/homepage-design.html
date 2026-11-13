@@ -9,11 +9,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* Homepage, statický design (bez animací). Hero = varianta A (rozhodnutí 33). Sekce se přidávají postupně po schválení. */
+/* Homepage, design s animacemi (13. 11.; při „omezit pohyb“ statický). Hero = varianta A (rozhodnutí 33). Sekce se přidávají postupně po schválení. */
 :root{
   --cream:#F7EDE2; --sand:#FDF8E1; --blush:#F5CAC3; --mango:#F6BD60; --sage:#84A59D; --dark:#4A5759; --ink:#33403F;
   --f-head:'Space Grotesk', ui-sans-serif, sans-serif; --f-body:'Work Sans', ui-sans-serif, sans-serif;
   --max:1240px; --gutter:clamp(20px,4vw,64px); --hdr:96px;
+
+  /* Úrovně písma (typografie.html, Ondra 13. 11.): sekce se odkazují sem, velikost se mění na jednom místě */
+  --t-xl:700 clamp(60px,6.4vw,92px)/1 var(--f-head);
+  --t-h2:700 clamp(44px,4.4vw,68px)/1.05 var(--f-head);
+  --t-h3l:700 clamp(28px,2.6vw,38px)/1.1 var(--f-head);
+  --t-h3:700 clamp(22px,2vw,30px)/1.15 var(--f-head);
+  --t-lead:300 clamp(18px,1.5vw,22px)/1.4 var(--f-body);
+  --t-text:300 clamp(16px,1.3vw,19px)/1.5 var(--f-body);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--cream);color:var(--dark);font:300 18px/1.5 var(--f-body);-webkit-font-smoothing:antialiased}
@@ -89,7 +97,7 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
 .usp-big{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
 .usp-big li{border-top:2px solid var(--ink);padding-top:18px}
 .usp-big b{display:block;font:700 clamp(56px,6.6vw,110px)/.9 var(--f-head);letter-spacing:-.045em;white-space:nowrap;color:var(--ink)}
-.usp-big span{display:block;margin-top:12px;font:300 clamp(17px,1.6vw,22px)/1.3 var(--f-body);color:var(--dark)}
+.usp-big span{display:block;margin-top:12px;font:var(--t-lead);color:var(--dark)}
 .logos{padding:clamp(48px,5vw,84px) 0 clamp(72px,7vw,110px);background:var(--cream);color:var(--dark)}
 .logos-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:clamp(24px,3vw,40px)}
 .logos-head p{font:400 17px/1.3 var(--f-body)}   /* ve wireframu verzálkový popisek, v designu obyčejné písmo (prostrkané verzálky jsou zamítnuté) */
@@ -110,13 +118,13 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
    (barva kroužku = skupina: Sage firmy, Blush osobně, reklama v Ink jako text), pod ním fotka 3 : 2 a řádky služeb bez karet. */
 .svc{padding:clamp(40px,4vw,64px) 0 clamp(88px,8vw,128px);background:var(--cream);color:var(--dark)}
 .svc-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin-bottom:clamp(40px,4.2vw,64px)}
-.svc-head h2{font:700 clamp(44px,4.4vw,68px)/1 var(--f-head);letter-spacing:-.04em;color:var(--ink)}
+.svc-head h2{font:var(--t-h2);letter-spacing:-.04em;color:var(--ink)}
 .svc-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(32px,4.4vw,64px)}
 /* oba sloupce sdílejí řádky mřížky (subgrid): směrovka, fotka a řádky služeb leží vlevo i vpravo ve stejné výšce */
 .svc-col{display:grid;grid-row:span 4;grid-template-rows:subgrid}
 .svc-cols .svc-list{display:contents}
 .svc-cols .svc-row:first-child{margin-top:clamp(18px,1.8vw,26px);border-top:2px solid var(--ink)}
-.grp{display:flex;align-items:center;height:clamp(60px,5vw,76px);padding-left:var(--gpad);font:700 clamp(30px,2.7vw,40px)/1 var(--f-head);letter-spacing:-.03em;color:var(--ink);white-space:nowrap;--gpad:.64em}
+.grp{display:flex;align-items:center;height:clamp(60px,5vw,76px);padding-left:var(--gpad);font:var(--t-h3l);letter-spacing:-.03em;color:var(--ink);white-space:nowrap;--gpad:.64em}
 .grp-p{position:relative;display:inline-block}
 .grp .ring{position:absolute;left:50%;top:52%;width:1.9em;height:1.9em;transform:translate(-50%,-50%);overflow:visible}
 /* síla kroužku = síla dříku písmene (Space Grotesk 700: dřík 0,1375 em; kroužek 1,9 em = 40 jednotek, tedy 2,9 jednotky) */
@@ -127,11 +135,11 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
 .svc-photo{display:block;width:100%;aspect-ratio:2/1;object-fit:cover;margin-top:clamp(18px,1.8vw,26px);background:#e9dccd}
 .svc-list{margin-top:clamp(18px,1.8vw,26px);border-top:2px solid var(--ink)}
 .svc-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:24px;padding:clamp(18px,1.7vw,24px) 0;border-bottom:1.5px solid rgb(51 64 63 / .3);color:inherit;text-decoration:none}
-.svc-row h3{font:700 clamp(24px,2.1vw,30px)/1.1 var(--f-head);letter-spacing:-.025em;color:var(--ink)}
-.svc-row p{margin-top:8px;font:300 clamp(16px,1.25vw,18px)/1.45 var(--f-body);color:var(--dark)}
+.svc-row h3{font:var(--t-h3);letter-spacing:-.025em;color:var(--ink)}
+.svc-row p{margin-top:8px;font:var(--t-text);color:var(--dark)}
 .svc-row .arr{font:400 30px/1.1 var(--f-body);color:var(--ink)}   /* s animacemi po najetí popojede */
 .svc-extra{margin-top:clamp(56px,5.4vw,88px)}
-.svc-help{margin-top:clamp(32px,3vw,48px);font:300 clamp(18px,1.5vw,21px)/1.4 var(--f-body)}
+.svc-help{margin-top:clamp(32px,3vw,48px);font:var(--t-lead)}
 .svc-help a{font-weight:500;text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:2px;white-space:nowrap}
 
 /* VYBRANÉ REALIZACE (HP-06): karusel 6 realizací, začíná na levém okraji mřížky a vpravo přetéká ke kraji okna
@@ -139,7 +147,7 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
    typ eventu, klient · rok. Šipky posouvají o jednu kartu skokem, bez animace a bez automatického posunu. */
 .works{--gl:max(var(--gutter),calc((100vw - var(--max)) / 2));--cg:clamp(20px,2.2vw,32px);--cw:min(440px,calc((100vw - var(--gl) - 3 * var(--cg)) / 3.3));padding:clamp(72px,7vw,112px) 0 clamp(80px,7.4vw,120px);background:var(--blush);color:var(--ink)}   /* podbarvení Blush (Ondra 13. 11.; předtím Dark Neutral) */
 .works-head{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-bottom:clamp(32px,3.4vw,52px)}
-.works-head h2{font:700 clamp(44px,4.4vw,68px)/1 var(--f-head);letter-spacing:-.04em;color:var(--ink)}
+.works-head h2{font:var(--t-h2);letter-spacing:-.04em;color:var(--ink)}
 .car-ctrl{display:flex;align-items:center;gap:14px;flex:none}
 .car-count{margin-right:10px;font:400 16px/1 var(--f-body);font-variant-numeric:tabular-nums;color:var(--dark)}
 .car-count b{font-weight:600;color:var(--ink)}
@@ -156,8 +164,8 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
 .work-tag circle{fill:none;stroke:var(--gc);stroke-width:2.6;stroke-dasharray:72.5 100;transform-box:view-box;transform-origin:50% 50%;transform:rotate(50deg)}
 .work-tag.b2b{--gc:var(--sage)}
 .work-tag.b2c{--gc:var(--ink)}   /* Blush kroužek by na Blush ploše zmizel */
-.work h3{margin-top:12px;font:700 clamp(22px,1.9vw,28px)/1.1 var(--f-head);letter-spacing:-.025em;color:var(--ink)}
-.work-meta{margin-top:6px;font:300 clamp(16px,1.2vw,18px)/1.4 var(--f-body);color:var(--dark)}
+.work h3{margin-top:12px;font:var(--t-h3);letter-spacing:-.025em;color:var(--ink)}
+.work-meta{margin-top:6px;font:var(--t-text);color:var(--dark)}
 .works-foot{margin-top:clamp(32px,3vw,48px)}
 .works .lnk{color:var(--ink)}
 
@@ -165,21 +173,25 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
    (výsek doprava = směr dopředu) s Blush „spotem“ uvnitř, mezi kroky silná linka s plnou šipkou. Bez čísel (číslované kroužky jsou zamítnuté). */
 .proc{padding:clamp(88px,8vw,128px) 0 clamp(96px,8.6vw,136px);background:var(--cream);color:var(--dark)}   /* krémová (Ondra 13. 11.; tmavá byla těžkopádná) */
 .proc-act{display:flex;align-items:center;gap:24px;margin-top:clamp(48px,4.6vw,72px)}   /* výzva po krocích (UX analýza, bod 5) */
-.proc-act p{font:300 clamp(17px,1.35vw,19px)/1.4 var(--f-body);color:var(--dark)}
-.proc h2{font:700 clamp(44px,4.4vw,68px)/1 var(--f-head);letter-spacing:-.04em;color:var(--ink)}
-.proc-lead{margin-top:16px;font:300 clamp(19px,1.6vw,23px)/1.4 var(--f-body);color:var(--dark)}
+.proc-act p{font:var(--t-text);color:var(--dark)}
+.proc h2{font:var(--t-h2);letter-spacing:-.04em;color:var(--ink)}
+.proc-lead{margin-top:16px;font:var(--t-lead);color:var(--dark)}
 .steps{--sg:clamp(18px,2vw,30px);list-style:none;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:auto auto auto;column-gap:var(--sg);margin-top:clamp(44px,4.4vw,68px)}
 .step{display:grid;grid-row:span 3;grid-template-rows:subgrid}   /* názvy i texty všech kroků začínají ve stejné výšce */
 .mk{position:relative;display:flex;align-items:center;height:56px}
 .mk .sg2{position:relative;display:block;width:56px;height:56px;flex:none}
 .mk svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .mk .rg{fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:butt;stroke-dasharray:72.5 100;transform-box:view-box;transform-origin:50% 50%;transform:rotate(50deg)}
-.mk .sp{fill:var(--blush)}   /* „spot“ uvnitř zastávky (brand: Váš eventový spot) */
+.mk .sp{fill:var(--blush)}
+/* Číslo kroku ve spotu (Ondra 13. 11.): Space Grotesk Bold, Ink; na tmavém spotu (krok 4) krémové */
+.mk .num{position:absolute;inset:0;display:grid;place-items:center;font:700 20px/1 var(--f-head);letter-spacing:-.02em;color:var(--ink);font-variant-numeric:lining-nums}
+.step:nth-child(4) .num{color:var(--cream)}
+.step:nth-child(1) .num{padding-left:1px}   /* „1“ má vlajku vlevo, inkoust je o 0,5 px vlevo od středu */   /* „spot“ uvnitř zastávky (brand: Váš eventový spot) */
 /* spoty v barvách palety (Ondra 13. 11.): Poptávka v Mangu (je to akce), dál Blush, Sage, Dark Neutral, Blush, Sage (krémová a Soft Sand by na krémové zanikly) */
 .step:nth-child(1) .sp{fill:var(--mango)}.step:nth-child(2) .sp{fill:var(--blush)}.step:nth-child(3) .sp{fill:var(--sage)}.step:nth-child(4) .sp{fill:var(--dark)}.step:nth-child(5) .sp{fill:var(--blush)}.step:nth-child(6) .sp{fill:var(--sage)}
 .ln{position:absolute;left:68px;right:calc(8px - var(--sg));top:50%;height:3px;margin-top:-1.5px;background:var(--ink)}
 .ln::after{content:"";position:absolute;right:-2px;top:50%;border-left:12px solid var(--ink);border-top:7px solid transparent;border-bottom:7px solid transparent;transform:translateY(-50%)}
-.step h3{margin-top:30px;font:700 clamp(22px,1.95vw,28px)/1.1 var(--f-head);letter-spacing:-.025em;color:var(--ink)}
+.step h3{margin-top:30px;font:var(--t-h3);letter-spacing:-.025em;color:var(--ink)}
 .step p{margin-top:12px;font:300 clamp(15px,1.2vw,17px)/1.5 var(--f-body);color:var(--dark)}
 
 /* O NÁS (HP-08): vlevo „Jsme Happy Production.“, podtitul, krátký příběh a odkaz; vpravo místo pro fotku týmu 4 : 5
@@ -189,9 +201,9 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
 .about{padding-top:0}   /* průběh nad O nás je taky krémový: oddělí je linka v mřížce */
 .about-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(20px,2.2vw,32px);align-items:center}
 .about-txt{grid-column:1 / span 7}
-.about h2{font:700 clamp(56px,6vw,92px)/.92 var(--f-head);letter-spacing:-.05em;color:var(--ink)}
+.about h2{font:var(--t-xl);letter-spacing:-.05em;color:var(--ink)}
 .about-sub{margin-top:22px;font:300 clamp(24px,2.3vw,32px)/1.25 var(--f-body);color:var(--ink)}
-.about-story{margin-top:26px;max-width:34em;font:300 clamp(17px,1.35vw,20px)/1.55 var(--f-body)}
+.about-story{margin-top:26px;max-width:34em;font:var(--t-text)}
 .about .lnk{margin-top:30px}
 .about-photo{grid-column:9 / span 4;position:relative}
 .slides{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--sand)}
@@ -204,12 +216,12 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
 .dots button::after{content:"";position:absolute;inset:-8.5px}   /* klikací plocha 24 × 24 px (UX analýza, bod 8) */
 @media (prefers-reduced-motion:reduce){.slides > div{transition:none}}
 .vals{margin-top:clamp(80px,7.4vw,120px)}
-.vals h3{font:700 clamp(28px,2.5vw,36px)/1.1 var(--f-head);letter-spacing:-.03em;color:var(--ink)}
+.vals h3{font:var(--t-h3l);letter-spacing:-.03em;color:var(--ink)}
 .vals ul{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 28px;margin-top:clamp(24px,2.4vw,36px)}
 .vals li{display:grid;grid-row:span 2;grid-template-rows:subgrid;align-content:start}   /* vysvětlení hodnot začínají na stejné výšce */
-.vals li p{margin-top:12px;font:300 clamp(17px,1.35vw,19px)/1.45 var(--f-body);letter-spacing:0}
+.vals li p{margin-top:12px;font:var(--t-text);letter-spacing:0}
 .vals .ph{color:rgb(74 87 89 / .7);font-style:italic}   /* vysvětlení hodnoty doplní klient (Q21, UX analýza bod 9) */
-.vals li{border-top:2px solid var(--ink);padding-top:18px;font:700 clamp(24px,2.2vw,32px)/1.15 var(--f-head);letter-spacing:-.025em;color:var(--ink)}
+.vals li{border-top:2px solid var(--ink);padding-top:18px;font:var(--t-h3);letter-spacing:-.025em;color:var(--ink)}
 
 /* OHLASY KLIENTŮ (HP-09): plocha Mango (Ondra 13. 11., výjimka z „Mango jen pro akci“; předtím Sage), vlevo nadpis a ovládání, vpravo jeden velký citát s krémovou uvozovkou.
    Přepíná se jen ručně (šipky, klávesnice). Recenze klient teprve dodá (Q05), proto zatím placeholdery a žádné hvězdičky.
@@ -217,7 +229,7 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
 .quotes{padding:clamp(96px,8.6vw,136px) 0;background:var(--mango);color:var(--ink)}
 .q-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(20px,2.2vw,32px);align-items:start}
 .q-left{grid-column:1 / span 4}
-.q-left h2{font:700 clamp(40px,3.8vw,60px)/1 var(--f-head);letter-spacing:-.04em;color:var(--ink)}
+.q-left h2{font:var(--t-h2);letter-spacing:-.04em;color:var(--ink)}
 .q-ctrl{display:flex;align-items:center;gap:14px;margin-top:clamp(28px,2.8vw,40px)}
 .quotes .car-count{margin-right:10px;font:600 19px/1 var(--f-body);font-variant-numeric:tabular-nums;color:var(--ink)}
 .quotes .car-count b{font-weight:700}
@@ -240,18 +252,18 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
 .faq{padding:clamp(96px,8.6vw,136px) 0;background:var(--cream);color:var(--dark)}
 .faq-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(20px,2.2vw,32px);align-items:start}
 .faq-left{grid-column:1 / span 4}
-.faq-left h2{font:700 clamp(44px,4.4vw,68px)/1 var(--f-head);letter-spacing:-.04em;color:var(--ink)}
-.faq-left p{margin-top:22px;font:300 clamp(19px,1.6vw,23px)/1.4 var(--f-body)}
+.faq-left h2{font:var(--t-h2);letter-spacing:-.04em;color:var(--ink)}
+.faq-left p{margin-top:22px;font:var(--t-lead)}
 .faq-left .lnk{margin-top:14px}
 .faq-list{grid-column:6 / span 7;border-top:2px solid var(--ink)}
 .faq-item{border-bottom:1.5px solid rgb(51 64 63 / .3)}
 .faq-q{display:grid;grid-template-columns:minmax(0,1fr) 28px;align-items:center;gap:24px;width:100%;padding:clamp(20px,1.9vw,26px) 0;border:0;background:none;text-align:left;cursor:pointer;
-  font:700 clamp(22px,1.9vw,26px)/1.2 var(--f-head);letter-spacing:-.02em;color:var(--ink)}
+  font:var(--t-h3);letter-spacing:-.025em;color:var(--ink)}
 .faq-pm{position:relative;width:22px;height:22px;justify-self:end;transition:transform .25s}
 .faq-pm::before,.faq-pm::after{content:"";position:absolute;left:0;right:0;top:50%;height:2.5px;margin-top:-1.25px;background:var(--ink)}
 .faq-pm::after{transform:rotate(90deg)}
 .faq-item.open .faq-pm{transform:rotate(45deg)}   /* plus se otočí na křížek */
-.faq-a{display:none;padding:0 52px clamp(22px,2vw,28px) 0;font:300 clamp(17px,1.35vw,20px)/1.55 var(--f-body);color:var(--dark)}
+.faq-a{display:none;padding:0 52px clamp(22px,2vw,28px) 0;font:var(--t-text);color:var(--dark)}
 .faq-item.open .faq-a{display:block}
 .faq-a.ph{color:rgb(74 87 89 / .7);font-style:italic}   /* placeholder: odpověď doplní klient (Q10) */
 @media (prefers-reduced-motion:reduce){.faq-pm{transition:none}}
@@ -264,10 +276,10 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
 .final-pat .sg{color:rgb(247 237 226 / .08)}
 .final-pat .sg.dim{color:rgb(247 237 226 / .035)}   /* za textem slabší: krémová 6 : 1, Mango 4,1 : 1 (velké písmo) */
 .final-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(20px,2.2vw,32px);align-items:center}   /* nadpis i pravý sloupec na středu sekce (Ondra 13. 11.) */
-.final h2{grid-column:1 / span 7;font:700 clamp(68px,7.6vw,124px)/.9 var(--f-head);letter-spacing:-.05em;color:var(--cream)}
+.final h2{grid-column:1 / span 7;font:var(--t-xl);letter-spacing:-.05em;color:var(--cream)}
 .final h2 em{font-style:normal;color:var(--mango)}
 .final-act{grid-column:8 / span 5}
-.final-lead{font:300 clamp(19px,1.6vw,23px)/1.45 var(--f-body);color:var(--cream)}
+.final-lead{font:var(--t-lead);color:var(--cream)}
 .final .cta{margin-top:30px}
 .final-note{margin-top:18px;font:400 16px/1.4 var(--f-body);color:var(--cream)}   /* plná krémová: přes vzor drží 6 : 1 */
 .final-tel{margin-top:6px;font:400 16px/1.4 var(--f-body);color:var(--cream)}
@@ -279,7 +291,7 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
 .ftr-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(20px,2.2vw,32px);row-gap:40px}
 .ftr-brand{grid-column:1 / span 4}
 .ftr-brand .logo{width:190px}
-.ftr-brand p{margin-top:22px;font:300 18px/1.5 var(--f-body);color:var(--dark)}
+.ftr-brand p{margin-top:22px;font:var(--t-text);color:var(--dark)}
 .ftr-col{grid-column:span 2}
 .ftr-col:nth-child(2){grid-column:6 / span 2}.ftr-col:nth-child(3){grid-column:8 / span 2}.ftr-col:last-child{grid-column:10 / span 3}   /* sloupce odkazů po stejných krocích */
 .ftr h3{font:700 18px/1.2 var(--f-head);letter-spacing:-.01em;color:var(--ink)}
@@ -297,7 +309,7 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
 /* IKONY JAKO PRVEK BRANDU (rozhodnutí 45): jedna na sekci, na hraně sekce nebo mimo mřížku, nikdy přes text, natočené jako nálepky
    a bez dalších stínů. Střídají strany: hero vpravo, realizace vlevo, ohlasy vpravo, výzva vlevo. Nikdy nevyjedou z okna (max 10px od kraje). */
 .bi{position:absolute;z-index:5;display:block;height:auto;pointer-events:none}
-.bi-hero{z-index:-1;width:calc(var(--d) * .6);left:calc(var(--d) * -.2);top:calc(var(--d) * -.17);transform:scaleX(-1) rotate(12deg)}   /* balónky 2× původní, za kruhem vlevo nahoře (Ondra 13. 11.: na druhou stranu), zrcadlené, ať se naklání ven */
+.bi-hero{z-index:1;width:calc(var(--d) * .6);left:calc(var(--d) * -.2);top:calc(var(--d) * -.17);transform:scaleX(-1) rotate(12deg)}   /* balónky 2× původní, za kruhem vlevo nahoře (Ondra 13. 11.: na druhou stranu), zrcadlené, ať se naklání ven */
 @media (max-width:1366px){.bi-hero{width:calc(var(--d) * .5);left:calc(var(--d) * -.12)}}   /* na užších obrazovkách menší a blíž kruhu, ať nesahají k nadpisu */
 .works,.quotes,.faq{position:relative}
 .bi-works{width:clamp(104px,9.6vw,140px);left:max(10px,calc(var(--gl) - clamp(52px,4.8vw,70px)));top:calc(-1 * clamp(52px,4.8vw,70px));transform:rotate(-10deg)}   /* přípitek na hraně rozcestník → realizace, napůl mimo mřížku */
@@ -321,6 +333,92 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
 /* Fokus z klávesnice (UX analýza, bod 7): 2 px obrys odsazený 3 px, Ink; na tmavém hero, tmavé hlavičce a v závěrečné výzvě krémový */
 :focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .v-a .copy :focus-visible,.hdr.is-scrolled :focus-visible,.final :focus-visible{outline-color:var(--cream)}
+
+/* ===================== ANIMACE (Ondra 13. 11.) =====================
+   Všechno jen se třídou js-anim, kterou skript přidá, když systém nemá zapnuté „omezit pohyb“. Bez ní je stránka statická jako dřív. */
+:root{--ease:cubic-bezier(.65,0,.35,1);--ease-out:cubic-bezier(.22,1,.36,1);--pop:cubic-bezier(.34,1.56,.64,1)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* Válec slova (rozhodnutí 15/26): staré slovo se odvalí nahoru, nové přijede zespodu; čárka a otazník jsou součást slova */
+.word{position:relative;display:inline-block;white-space:nowrap;perspective:900px}
+.js-anim .word{transition:width .55s var(--ease-out)}
+.word .w{display:inline-block;white-space:nowrap;transform-origin:50% 50% -.6em;backface-visibility:hidden;transition:transform var(--wd,.85s) var(--ease),opacity var(--wd,.85s) var(--ease)}
+.word .w.abs{position:absolute;left:0;top:0}
+.word .w.from{transform:rotateX(-90deg);opacity:0}
+.word .w.leave{transform:rotateX(90deg);opacity:0}
+/* Hero: prstenec se za 3 s dokreslí, pak se nová fotka prolne přes starou (crossfade, Ondra 13. 11.; zkoušeno otočení mince a dotočení po prstenci). */
+.v-a .win{perspective:2000px}
+.disc{position:absolute;inset:0;z-index:2}   /* pořadí v kruhu: prstenec (dole), balónky před ním, fotka nahoře (Ondra 13. 11.) */
+.face.a{z-index:1}
+.face.fade{animation:faceFade .9s ease-in-out both}
+@keyframes faceFade{from{opacity:0}to{opacity:1}}
+.face.is-ph{display:grid;place-items:center;background:var(--sand)}   /* místo pro fotku, stejně jako fotky týmu v O nás */
+.face.is-ph img{display:none}
+.face.is-ph::after{content:"Fotka svatby";font:400 15px/1.3 var(--f-body);color:var(--dark)}
+.wring .rtrack{stroke:rgb(247 237 226 / .16);stroke-width:1.4}   /* ne „track“: tak se jmenuje pás s logy */
+.js-anim .wring .prog{stroke-dashoffset:72.5}
+.js-anim .wring .prog.run{animation:draw var(--dur,3s) linear forwards}
+.v-a.paused .wring .prog.run{animation-play-state:paused}
+@keyframes draw{to{stroke-dashoffset:0}}
+.tab::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:2px;background:var(--mango);transform:scaleX(0);transform-origin:left}
+.tab.on::after{transform:scaleX(1)}
+.js-anim .tab{transition:color .25s}
+.js-anim .tab::after{transition:transform .45s var(--ease-out)}
+/* Tlačítko: kroužek se při najetí jednou zatočí, výsek u textu zůstává skrytý ořezem (rozhodnutí 27) */
+.cta .ring circle{transition:transform .9s var(--ease)}
+.js-anim .cta:hover .ring circle,.js-anim .cta:focus-visible .ring circle{transform:rotate(410deg)}
+/* Šipky v odkazech a v rozcestníku po najetí popojedou */
+.lnk span,.svc-row .arr{transition:transform .35s var(--ease-out)}
+.js-anim .lnk:hover span{transform:translateX(5px)}
+.js-anim .svc-row:hover .arr{transform:translateX(6px)}
+/* Pruhy log pomalu jedou, druhý opačně; po najetí myší stojí */
+.js-anim .marquee .track{animation:mq var(--mqd,60s) linear infinite}
+.js-anim .marquee.rev .track{animation-direction:reverse;animation-delay:calc(var(--mqd,60s) * -.4)}
+.marquee:hover .track{animation-play-state:paused}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(calc(-1 * var(--shift,50%)))}}
+/* Průběh spolupráce: zastávky naskočí a linka se dokreslí zleva doprava, když sekce vjede na obrazovku */
+.js-anim .steps .sg2{transform:scale(.4);opacity:0;transition:transform .5s var(--pop),opacity .3s;transition-delay:calc(var(--i,0) * .32s)}
+.js-anim .steps .ln{clip-path:inset(-12px 100% -12px 0);transition:clip-path .45s var(--ease-out);transition-delay:calc(var(--i,0) * .32s + .18s)}
+.js-anim .steps.is-drawn .sg2{transform:scale(1);opacity:1}
+.js-anim .steps.is-drawn .ln{clip-path:inset(-12px -16px -12px 0)}
+/* Mikro interakce přípitku (pilot, Ondra 13. 11.): ikona rozřezaná na levou a pravou sklenku a kapky (vrstvy na stejném plátně,
+   v klidu složené = původní ikona). Sklenky se od sebe naklopí kolem patky, ťuknou se a vyskočí kapky. Hraje jednou, když ikona vjede
+   na obrazovku, a znovu po najetí myší. Při „omezit pohyb“ stojí. */
+.bi-toast{aspect-ratio:1}
+.bi-toast img{position:absolute;inset:0;width:100%;height:100%;display:block}
+.bi-toast .l{transform-origin:26.6% 94.8%}
+.bi-toast .r{transform-origin:71.7% 94.1%}
+.bi-toast .k{transform-origin:49% 26%}
+.js-anim .bi-toast{pointer-events:auto}
+.js-anim .bi-toast.play .l{animation:toastL 1.15s cubic-bezier(.45,0,.25,1) both}
+.js-anim .bi-toast.play .r{animation:toastR 1.15s cubic-bezier(.45,0,.25,1) both}
+.js-anim .bi-toast.play .k{animation:toastK 1.15s ease-out both}
+@keyframes toastL{0%{transform:rotate(0)}32%{transform:rotate(-6deg)}50%{transform:rotate(1.4deg)}63%{transform:rotate(-.7deg)}76%{transform:rotate(.3deg)}100%{transform:rotate(0)}}
+@keyframes toastR{0%{transform:rotate(0)}32%{transform:rotate(6deg)}50%{transform:rotate(-1.4deg)}63%{transform:rotate(.7deg)}76%{transform:rotate(-.3deg)}100%{transform:rotate(0)}}
+@keyframes toastK{0%{opacity:1;transform:scale(1)}16%{opacity:0;transform:scale(.55)}49%{opacity:0;transform:scale(.25)}60%{opacity:1;transform:scale(1.14)}74%{transform:scale(.96)}86%{transform:scale(1.02)}100%{opacity:1;transform:scale(1)}}
+/* Mikro interakce ostatních ikon (rozhodnutí 59). Osy otáčení změřené z obrázků: mašle balónků, patka mikrofonu, spodek prstenu. */
+/* Vrstva s textem hero leží přes celou plochu a brala myš fotce i balónkům: myš propustí, klikací zůstane jen text */
+.v-a .in,.v-a .in .wrap,.wring{pointer-events:none}   /* i prstenec kolem fotky (průhledný čtverec přes balónky) */
+.v-a .copy{pointer-events:auto}
+.bi-balloons img,.bi-mic img{display:block;width:100%;height:auto}
+.bi-balloons img{transform-origin:44.2% 84%}
+.bi-mic img{transform-origin:47.9% 95.3%}
+.bi-wed{aspect-ratio:1}
+.bi-wed img{position:absolute;inset:0;width:100%;height:100%;display:block}
+.bi-wed .pr{transform-origin:49.9% 97.8%}
+.js-anim .bi-mic,.js-anim .bi-wed{pointer-events:auto}
+/* balónky se pořád jemně houpou kolem mašle jako na provázku (Ondra 13. 11.: „dej do loopu“); začínají ve středu výkyvu, takže po načtení necuknou */
+.js-anim .bi-balloons img{animation:balloonLoop 2.8s ease-in-out -1.4s infinite alternate}
+@keyframes balloonLoop{from{transform:rotate(-3.5deg)}to{transform:rotate(3.5deg)}}
+/* mikrofon: „ťuk ťuk, zkouška“ – dvakrát se cuknutím nakloní na stojanu */
+.js-anim .bi-mic.play img{animation:mic 1.1s ease-out both}
+@keyframes mic{0%{transform:rotate(0)}9%{transform:rotate(-7deg)}22%{transform:rotate(1.6deg)}32%{transform:rotate(0)}44%{transform:rotate(-7deg)}57%{transform:rotate(1.6deg)}70%{transform:rotate(-.4deg)}100%{transform:rotate(0)}}
+/* prstýnek: prsten se pohoupne, tři jiskry postupně problikají (čtyřcípá hvězda otočená o 90° vypadá stejně) */
+.js-anim .bi-wed.play .pr{animation:rock 1.4s cubic-bezier(.37,0,.63,1) both}
+.js-anim .bi-wed.play .j{animation:twinkle .7s ease-in-out both}
+.js-anim .bi-wed.play .j2{animation-delay:.2s}
+.js-anim .bi-wed.play .j3{animation-delay:.4s}
+@keyframes rock{0%{transform:rotate(0)}24%{transform:rotate(-5deg)}54%{transform:rotate(3deg)}80%{transform:rotate(-1deg)}100%{transform:rotate(0)}}
+@keyframes twinkle{0%{transform:scale(1) rotate(0)}40%{transform:scale(.15) rotate(45deg)}74%{transform:scale(1.3) rotate(90deg)}100%{transform:scale(1) rotate(90deg)}}
 </style>
 </head>
 <body>
@@ -338,8 +436,8 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
     </div>
   </header>
   <div class="pattern"></div>
-  <figure class="win wa"><img class="bi bi-hero" src="img/ikony/oslavy-768.webp" alt="" aria-hidden="true"><div class="face"><img src="img/hero/uvod-o309.jpg" alt="Nadšená žena s dlaněmi na tvářích"></div><svg class="wring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="49" pathLength="100"/></svg></figure>
-  <div class="in"><div class="wrap"><div class="copy"><h1>Eventová<br>agentura<br><span class="nw">v&nbsp;srdci Karlína</span></h1><p class="claim">Děláme <b aria-live="polite">firemní eventy,</b><br>ze kterých odcházíte happy.</p><div class="tabs" role="group" aria-label="Typ eventu"><button type="button" class="tab on" aria-pressed="true">Firemní eventy</button><button type="button" class="tab" aria-pressed="false">Konference</button><button type="button" class="tab" aria-pressed="false">Teambuildingy</button><button type="button" class="tab" aria-pressed="false">Vánoční večírky</button><button type="button" class="tab" aria-pressed="false">Oslavy</button><button type="button" class="tab" aria-pressed="false">Svatby</button></div><a class="cta" href="#">Chci poptat služby</a></div></div></div>
+  <figure class="win wa"><span class="bi bi-hero bi-balloons" aria-hidden="true"><img src="img/ikony/oslavy-768.webp" alt=""></span><div class="disc"><div class="face a"><img src="img/hero/uvod-o309.jpg" alt="Nadšená žena s dlaněmi na tvářích"></div><div class="face b" aria-hidden="true"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""></div></div><svg class="wring" viewBox="0 0 100 100" aria-hidden="true"><circle class="rtrack" cx="50" cy="50" r="49" pathLength="100"/><circle class="prog" cx="50" cy="50" r="49" pathLength="100"/></svg></figure>
+  <div class="in"><div class="wrap"><div class="copy"><h1>Eventová<br>agentura<br><span class="nw">v&nbsp;srdci Karlína</span></h1><p class="claim" aria-hidden="true">Děláme <b class="word">firemní eventy,</b><br>ze kterých odcházíte happy.</p><p class="sr-only">Děláme firemní eventy, konference, teambuildingy, vánoční večírky, oslavy a&nbsp;svatby, ze kterých odcházíte happy.</p><div class="tabs" role="group" aria-label="Typ eventu"><button type="button" class="tab on" aria-pressed="true">Firemní eventy</button><button type="button" class="tab" aria-pressed="false">Konference</button><button type="button" class="tab" aria-pressed="false">Teambuildingy</button><button type="button" class="tab" aria-pressed="false">Vánoční večírky</button><button type="button" class="tab" aria-pressed="false">Oslavy</button><button type="button" class="tab" aria-pressed="false">Svatby</button></div><a class="cta" href="#">Chci poptat služby</a></div></div></div>
 </section>
 
 <section class="usp" aria-label="Happy Production v číslech">
@@ -382,7 +480,7 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
 </section>
 
 <section class="works" aria-labelledby="works-h">
-  <img class="bi bi-works" src="img/ikony/firemni-eventy-280.webp" alt="" aria-hidden="true">
+  <span class="bi bi-works bi-toast" aria-hidden="true"><img class="l" src="img/ikony/pripitek-leva-280.webp" alt=""><img class="r" src="img/ikony/pripitek-prava-280.webp" alt=""><img class="k" src="img/ikony/pripitek-kapky-280.webp" alt=""></span>
   <div class="wrap works-head">
     <h2 id="works-h">Vybrané realizace</h2>
     <div class="car-ctrl"><span class="car-count" aria-live="polite"><b class="js-cur">01</b> / 06</span><button type="button" class="car-btn" data-dir="-1" aria-label="Předchozí realizace">←</button><button type="button" class="car-btn" data-dir="1" aria-label="Další realizace">→</button></div>
@@ -395,7 +493,7 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
   <div class="wrap">
     <h2 id="proc-h">Jak probíhá spolupráce s&nbsp;námi</h2>
     <p class="proc-lead">Šest kroků od poptávky po zpětnou vazbu.</p>
-    <ol class="steps"><li class="step"><span class="mk" aria-hidden="true"><span class="sg2"><svg viewBox="0 0 56 56" aria-hidden="true"><circle class="sp" cx="28" cy="28" r="19.5"/><circle class="rg" cx="28" cy="28" r="26.5" pathLength="100"/></svg></span><span class="ln"></span></span><h3>Poptávka</h3><p>Vyplníte krátký formulář: typ eventu, místo, datum, počet hostů a&nbsp;rozpočet.</p></li><li class="step"><span class="mk" aria-hidden="true"><span class="sg2"><svg viewBox="0 0 56 56" aria-hidden="true"><circle class="sp" cx="28" cy="28" r="19.5"/><circle class="rg" cx="28" cy="28" r="26.5" pathLength="100"/></svg></span><span class="ln"></span></span><h3>Nabídka</h3><p>Připravíme nabídku na míru.</p></li><li class="step"><span class="mk" aria-hidden="true"><span class="sg2"><svg viewBox="0 0 56 56" aria-hidden="true"><circle class="sp" cx="28" cy="28" r="19.5"/><circle class="rg" cx="28" cy="28" r="26.5" pathLength="100"/></svg></span><span class="ln"></span></span><h3>Doladění a&nbsp;schválení</h3><p>Nabídku schválíte, nebo ji společně upravíme.</p></li><li class="step"><span class="mk" aria-hidden="true"><span class="sg2"><svg viewBox="0 0 56 56" aria-hidden="true"><circle class="sp" cx="28" cy="28" r="19.5"/><circle class="rg" cx="28" cy="28" r="26.5" pathLength="100"/></svg></span><span class="ln"></span></span><h3>Příprava</h3><p>Zajistíme vše domluvené. Těsně před eventem vám pošleme potvrzovací e-mail.</p></li><li class="step"><span class="mk" aria-hidden="true"><span class="sg2"><svg viewBox="0 0 56 56" aria-hidden="true"><circle class="sp" cx="28" cy="28" r="19.5"/><circle class="rg" cx="28" cy="28" r="26.5" pathLength="100"/></svg></span><span class="ln"></span></span><h3>Realizace</h3><p>Event proběhne podle schváleného plánu.</p></li><li class="step"><span class="mk" aria-hidden="true"><span class="sg2"><svg viewBox="0 0 56 56" aria-hidden="true"><circle class="sp" cx="28" cy="28" r="19.5"/><circle class="rg" cx="28" cy="28" r="26.5" pathLength="100"/></svg></span></span><h3>Zpětná vazba</h3><p>Po eventu si s&nbsp;vámi projdeme, jak se povedl.</p></li></ol>
+    <ol class="steps"><li class="step"><span class="mk" aria-hidden="true"><span class="sg2"><svg viewBox="0 0 56 56" aria-hidden="true"><circle class="sp" cx="28" cy="28" r="19.5"/><circle class="rg" cx="28" cy="28" r="26.5" pathLength="100"/></svg><span class="num" aria-hidden="true">1</span></span><span class="ln"></span></span><h3>Poptávka</h3><p>Vyplníte krátký formulář: typ eventu, místo, datum, počet hostů a&nbsp;rozpočet.</p></li><li class="step"><span class="mk" aria-hidden="true"><span class="sg2"><svg viewBox="0 0 56 56" aria-hidden="true"><circle class="sp" cx="28" cy="28" r="19.5"/><circle class="rg" cx="28" cy="28" r="26.5" pathLength="100"/></svg><span class="num" aria-hidden="true">2</span></span><span class="ln"></span></span><h3>Nabídka</h3><p>Připravíme nabídku na míru.</p></li><li class="step"><span class="mk" aria-hidden="true"><span class="sg2"><svg viewBox="0 0 56 56" aria-hidden="true"><circle class="sp" cx="28" cy="28" r="19.5"/><circle class="rg" cx="28" cy="28" r="26.5" pathLength="100"/></svg><span class="num" aria-hidden="true">3</span></span><span class="ln"></span></span><h3>Doladění a&nbsp;schválení</h3><p>Nabídku schválíte, nebo ji společně upravíme.</p></li><li class="step"><span class="mk" aria-hidden="true"><span class="sg2"><svg viewBox="0 0 56 56" aria-hidden="true"><circle class="sp" cx="28" cy="28" r="19.5"/><circle class="rg" cx="28" cy="28" r="26.5" pathLength="100"/></svg><span class="num" aria-hidden="true">4</span></span><span class="ln"></span></span><h3>Příprava</h3><p>Zajistíme vše domluvené. Těsně před eventem vám pošleme potvrzovací e-mail.</p></li><li class="step"><span class="mk" aria-hidden="true"><span class="sg2"><svg viewBox="0 0 56 56" aria-hidden="true"><circle class="sp" cx="28" cy="28" r="19.5"/><circle class="rg" cx="28" cy="28" r="26.5" pathLength="100"/></svg><span class="num" aria-hidden="true">5</span></span><span class="ln"></span></span><h3>Realizace</h3><p>Event proběhne podle schváleného plánu.</p></li><li class="step"><span class="mk" aria-hidden="true"><span class="sg2"><svg viewBox="0 0 56 56" aria-hidden="true"><circle class="sp" cx="28" cy="28" r="19.5"/><circle class="rg" cx="28" cy="28" r="26.5" pathLength="100"/></svg><span class="num" aria-hidden="true">6</span></span></span><h3>Zpětná vazba</h3><p>Po eventu si s&nbsp;vámi projdeme, jak se povedl.</p></li></ol>
     <div class="proc-act"><a class="cta" href="#">Chci poptat služby</a><p>První schůzka je nezávazná a&nbsp;zdarma.</p></div>
   </div>
 </section>
@@ -419,7 +517,7 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
 </section>
 
 <section class="quotes" aria-labelledby="q-h">
-  <img class="bi bi-quotes" src="img/ikony/konference-340.webp" alt="" aria-hidden="true">
+  <span class="bi bi-quotes bi-mic" aria-hidden="true"><img src="img/ikony/konference-340.webp" alt=""></span>
   <div class="wrap q-grid">
     <div class="q-left">
       <h2 id="q-h">Co říkají naši klienti?</h2>
@@ -430,7 +528,7 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
 </section>
 
 <section class="faq" aria-labelledby="faq-h">
-  <img class="bi bi-faq" src="img/ikony/svatby-260.webp" alt="" aria-hidden="true">
+  <span class="bi bi-faq bi-wed" aria-hidden="true"><img class="pr" src="img/ikony/prstynek-prsten-260.webp" alt=""><img class="j" src="img/ikony/prstynek-jiskra1-260.webp" alt="" style="transform-origin:25.1% 39.1%"><img class="j j2" src="img/ikony/prstynek-jiskra2-260.webp" alt="" style="transform-origin:26.4% 9.2%"><img class="j j3" src="img/ikony/prstynek-jiskra3-260.webp" alt="" style="transform-origin:75.8% 26.8%"></span>
   <div class="wrap faq-grid">
     <div class="faq-left">
       <h2 id="faq-h">Časté otázky</h2>
@@ -444,7 +542,7 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
 <section class="final" aria-labelledby="final-h">
   <div class="final-pat" aria-hidden="true"></div>
   <div class="wrap final-grid">
-    <h2 id="final-h">Plánujete<br><em>event?</em></h2>
+    <h2 id="final-h" aria-label="Plánujete event?"><span aria-hidden="true">Plánujete<br><em class="word">event?</em></span></h2>
     <div class="final-act">
       <p class="final-lead">Pošlete nám pár základních údajů a&nbsp;připravíme nabídku na míru. Ozveme se do&nbsp;3&nbsp;pracovních&nbsp;dnů.</p>
       <a class="cta" href="#">Chci poptat služby</a>
@@ -476,7 +574,7 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
         <ul><li><a href="tel:+420602339569">+420&nbsp;602&nbsp;339&nbsp;569</a></li><li><a href="mailto:info@happyproduction.cz">info@happyproduction.cz</a></li><li>Šaldova 419/16<br>Praha&nbsp;8&nbsp;–&nbsp;Karlín</li><li>Sítě: <span class="ph">doplní klient</span></li></ul>
       </div>
     </div>
-    <div class="ftr-bottom"><span>© 2026 Happy Production</span><span>IČO: <span class="ph">doplní klient</span></span><span class="sp"></span><a href="#">Ochrana osobních údajů</a><a href="#">Cookies</a></div>
+    <div class="ftr-bottom"><span>© 2026 Happy Production</span><span>IČO: 07096976</span><span class="sp"></span><a href="#">Ochrana osobních údajů</a><a href="#">Cookies</a></div>
   </div>
 </footer>
 
@@ -492,6 +590,29 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
 (function(){
   var $$ = function(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   $$('a[href="#"]').forEach(function(a){ a.addEventListener('click', function(e){ e.preventDefault(); }); });
+  // Animace jen bez „omezit pohyb“ (třída js-anim zapíná přechody v CSS)
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce) document.documentElement.classList.add('js-anim');
+  function inView(el, ratio, fn){   // jednou, až prvek vjede na obrazovku
+    if (!('IntersectionObserver' in window)){ fn(); return; }
+    var io = new IntersectionObserver(function(es){ if (es[0].isIntersecting){ io.disconnect(); fn(); } }, {threshold: ratio}); io.observe(el);
+  }
+  // Válec slova: staré se odvalí nahoru, nové přijede zespodu (z prototypu hero-c2-okno.html)
+  function wordSpan(text){ var w = document.createElement('span'); w.className = 'w'; w.textContent = text; return w; }
+  function setWord(word, text){
+    if (reduce){ word.textContent = ''; word.appendChild(wordSpan(text)); return; }
+    clearTimeout(word._t);
+    $$('.w.leave', word).forEach(function(n){ n.remove(); });
+    $$('.w.abs', word).forEach(function(n){ n.classList.remove('abs', 'from'); });
+    var old = word.querySelector('.w'), w0 = word.getBoundingClientRect().width, nu = wordSpan(text);
+    nu.classList.add('abs', 'from'); word.appendChild(nu);
+    var w1 = nu.getBoundingClientRect().width, ms = (parseFloat(getComputedStyle(word).getPropertyValue('--wd')) || .85) * 1000;
+    word.style.width = w0 + 'px';
+    if (old) old.classList.add('leave');
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ word.style.width = w1 + 'px'; nu.classList.remove('from'); }); });
+    word._t = setTimeout(function(){ if (old) old.remove(); nu.classList.remove('abs', 'from'); word.style.width = ''; }, ms + 100);
+  }
+  $$('.word').forEach(function(w){ var t = w.textContent; w.textContent = ''; w.appendChild(wordSpan(t)); });
   // Tlačítka: první písmeno v otevřeném kruhu jako „H“ v logu
   $$('.cta').forEach(function(a){
     var t = a.textContent, p = document.createElement('span');
@@ -544,7 +665,7 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
       btns[0].disabled = car.scrollLeft < 2;
       btns[1].disabled = car.scrollLeft > car.scrollWidth - car.clientWidth - 2;
     }
-    btns.forEach(function(b){ b.addEventListener('click', function(){ car.scrollBy({left: step() * +b.dataset.dir, behavior: 'auto'}); }); });
+    btns.forEach(function(b){ b.addEventListener('click', function(){ car.scrollBy({left: step() * +b.dataset.dir, behavior: reduce ? 'auto' : 'smooth'}); }); });   // plynule, při „omezit pohyb“ skokem
     car.addEventListener('scroll', upd); window.addEventListener('resize', upd); upd();
   })();
 
@@ -614,20 +735,104 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
     h.addEventListener('focusin', function(){ h.classList.remove('is-hidden'); });
     f();
   })();
-  // Záložky v hero (UX analýza, bod 4): klik přepne slovo v claimu a fotku v kruhu. Zatím bez automatického střídání a animací.
-  // Fotky z výběru pro hero (rozhodnutí 32, 33), u firemních eventů úvodní O309 (rozhodnutí 34).
+  // Hero (rozhodnutí 48, animace 13. 11.): typy eventů se střídají po 3 s. Slovo ve válci, fotka se přetočí jako mince, podtržení přejede
+  // na další záložku a mangový prstenec se za tu dobu dokreslí. Klik na záložku skočí na daný typ a pokračuje se dál.
+  // Stojí, když je myš nad fotkou, při ovládání záložek klávesnicí a když hero není vidět. Při „omezit pohyb“ se samo nestřídá.
   (function(){
     var D = [['firemní eventy,', 'img/hero/uvod-o309.jpg', '', 'Nadšená žena s dlaněmi na tvářích'], ['konference,', 'img/hero/konference.jpg', '52% 42%', 'Usměvavé účastnice konference v sále'],
              ['teambuildingy,', 'img/hero/teambuildingy.jpg', '60% 50%', 'Tým v černých tričkách táhne lano na louce'], ['vánoční večírky,', 'img/hero/vanocni-vecirky.jpg', '50% 26%', 'Dvě ženy se smějí na vánočním večírku pod dřevěnými trámy'],
-             ['oslavy,', 'img/hero/oslavy.jpg', '56% 30%', 'Pár tančí na oslavě 50. narozenin pod balónky'], ['svatby,', 'img/hero/svatby.jpg', '50% 50%', 'Svatební oblouk s bílými závoji v lese']];   // slovo, fotka, výřez, popis fotky (alt)
-    var tabs = $$('.v-a .tab'), word = document.querySelector('.v-a .claim b'), img = document.querySelector('.v-a .face img');
-    D.forEach(function(d){ new Image().src = d[1]; });
-    tabs.forEach(function(b, k){ b.addEventListener('click', function(){
-      tabs.forEach(function(x){ x.classList.remove('on'); x.setAttribute('aria-pressed', 'false'); });
-      b.classList.add('on'); b.setAttribute('aria-pressed', 'true');
-      word.textContent = D[k][0]; img.src = D[k][1]; img.style.objectPosition = D[k][2]; img.alt = D[k][3]; all();
-    }); });
+             ['oslavy,', 'img/hero/oslavy.jpg', '56% 30%', 'Pár tančí na oslavě 50. narozenin pod balónky'], ['svatby,', '', '', 'Místo pro fotku svatby']];   // svatby: zatím placeholder, fotku s lidmi dodá Ondra   // slovo, fotka, výřez, popis fotky
+    var hero = document.querySelector('.v-a'), tabs = $$('.v-a .tab'), tabsEl = hero.querySelector('.tabs'), word = hero.querySelector('.claim .word');
+    var win = hero.querySelector('.win'), disc = hero.querySelector('.disc'), faces = $$('.face', disc), prog = hero.querySelector('.wring .prog');
+    var hi = 0, side = 0, DUR = 3000, hold = {hover: 0, focus: 0, off: 0};
+    prog.style.setProperty('--dur', DUR + 'ms');
+    D.forEach(function(d){ if (d[1]) new Image().src = d[1]; });
+    function setFace(f, d){   // bez fotky placeholder (text v kruhu), jinak fotka s popisem
+      var im = f.querySelector('img'), ph = !d[1];
+      f.classList.toggle('is-ph', ph);
+      if (ph){ im.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'; im.alt = ''; f.setAttribute('role', 'img'); f.setAttribute('aria-label', d[3]); }
+      else { im.src = d[1]; im.style.objectPosition = d[2]; im.alt = d[3]; f.removeAttribute('role'); f.removeAttribute('aria-label'); }
+    }
+    function runProg(){ prog.classList.remove('run'); void prog.getBoundingClientRect(); prog.classList.add('run'); }
+    function show(i){
+      hi = i; var d = D[i];
+      tabs.forEach(function(x, k){ x.classList.toggle('on', k === i); x.setAttribute('aria-pressed', k === i ? 'true' : 'false'); });
+      setWord(word, d[0]);
+      if (reduce){ setFace(faces[0], d); return; }
+      // nová fotka leží nad starou a prolne se přes ni; předchozí prolnutí se případně dokončí hned
+      var cur = faces[side], nu = faces[1 - side];
+      cur.classList.remove('fade'); setFace(nu, d);
+      cur.style.zIndex = 1; nu.style.zIndex = 2;
+      nu.classList.remove('fade'); void nu.offsetWidth; nu.classList.add('fade');
+      nu.removeAttribute('aria-hidden'); cur.setAttribute('aria-hidden', 'true');
+      side = 1 - side;
+      runProg();
+    }
+    prog.addEventListener('animationend', function(){ show((hi + 1) % D.length); });
+    faces.forEach(function(f){ f.addEventListener('animationend', function(e){ if (e.animationName === 'faceFade') f.classList.remove('fade'); }); });
+    tabs.forEach(function(b, k){ b.addEventListener('click', function(){ if (k !== hi) show(k); else if (!reduce) runProg(); }); });
+    function upd(){ hero.classList.toggle('paused', !!(hold.hover || hold.focus || hold.off)); }
+    // Pauza: nad fotkou (ať se dá prohlédnout) a při ovládání záložek klávesnicí. Klik myší na záložku pauzu nezapne,
+    // jinak by prstenec po prokliknutí typů stál (Ondra 13. 11.).
+    win.addEventListener('mouseenter', function(){ hold.hover = 1; upd(); });
+    win.addEventListener('mouseleave', function(){ hold.hover = 0; upd(); });
+    tabsEl.addEventListener('focusin', function(e){ hold.focus = e.target.matches(':focus-visible') ? 1 : 0; upd(); });
+    tabsEl.addEventListener('focusout', function(){ hold.focus = 0; upd(); });
+    tabsEl.addEventListener('pointerdown', function(){ hold.focus = 0; upd(); });
+    if ('IntersectionObserver' in window) new IntersectionObserver(function(es){ hold.off = es[0].isIntersecting ? 0 : 1; upd(); }, {threshold: .15}).observe(hero);
+    if (!reduce) runProg();
   })();
+
+  // Pruhy log: obsah se zopakuje tolikrát, aby pruh nikdy neměl díru, a jede dokola stálou rychlostí (~35 px/s)
+  (function(){
+    if (reduce) return;
+    $$('.marquee').forEach(function(m){
+      var t = m.querySelector('.track'), kids = Array.prototype.slice.call(t.children), n = kids.length;
+      function copy(){ kids.forEach(function(k){ var c = k.cloneNode(true); c.setAttribute('aria-hidden', 'true'); c.removeAttribute('role'); c.removeAttribute('aria-label'); t.appendChild(c); }); }
+      function fit(){
+        if (t.children.length === n) copy();
+        var shift = t.children[n].offsetLeft - t.children[0].offsetLeft, guard = 0;
+        while (t.scrollWidth - shift < m.clientWidth + 20 && guard++ < 6) copy();
+        t.style.setProperty('--shift', shift + 'px'); t.style.setProperty('--mqd', (shift / 35).toFixed(1) + 's');
+      }
+      fit(); window.addEventListener('resize', fit);
+      if (document.fonts) document.fonts.ready.then(fit);
+    });
+  })();
+
+  // Průběh spolupráce: zastávky naskočí a linka se dokreslí zleva doprava
+  (function(){
+    var st = document.querySelector('.steps'); if (!st || reduce) return;
+    $$('.step', st).forEach(function(x, i){ x.style.setProperty('--i', i); });
+    inView(st, .35, function(){ st.classList.add('is-drawn'); });   // ne „in“: tak se jmenuje vnitřek hero (position:absolute)
+  })();
+
+  // Mikro interakce ikon (rozhodnutí 58, 59): přehraje se po najetí myší; přípitek, mikrofon a prstýnek i jednou při vjetí na obrazovku.
+  // Balónky v hero se houpou pořád dokola (jen CSS). Konec animace hlídá první obrázek (běží nejdéle).
+  (function(){
+    if (reduce) return;
+    $$('.bi-toast, .bi-mic, .bi-wed').forEach(function(t){   // balónky se houpou pořád, jen v CSS
+      function play(){ if (!t.classList.contains('play')) t.classList.add('play'); }
+      t.addEventListener('animationend', function(e){ if (e.target === t.firstElementChild) t.classList.remove('play'); });
+      t.addEventListener('mouseenter', play);
+      inView(t, .6, function(){ setTimeout(play, 250); });
+    });
+  })();
+
+  // Závěrečná výzva: slovo se střídá dokola – válec .7 s, další slovo po 2 s (Ondra 13. 11.).
+  // Běží jen, když je výzva vidět; bez JS a při „omezit pohyb“ zůstává „event?“.
+  (function(){
+    var w = document.querySelector('.final h2 .word'); if (!w || reduce) return;
+    var seq = ['event?', 'svatbu?', 'teambuilding?', 'konferenci?', 'večírek?', 'oslavu?'], i = 0, t = null;
+    w.style.setProperty("--wd", ".7s");   // výzva je rychlejší než hero (tam je válec pomalý kvůli fotkám), Ondra 13. 11.
+    function tick(){ i = (i + 1) % seq.length; setWord(w, seq[i]); }
+    if (!('IntersectionObserver' in window)){ t = setInterval(tick, 2000); return; }
+    new IntersectionObserver(function(es){
+      if (es[0].isIntersecting){ if (!t) t = setInterval(tick, 2000); }
+      else { clearInterval(t); t = null; }
+    }, {threshold: .6}).observe(w);
+  })();
+
   function all(){ placeA(); build(); buildFinal(); }
   all();
   window.addEventListener('resize', all);
