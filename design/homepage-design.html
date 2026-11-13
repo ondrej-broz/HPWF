@@ -356,6 +356,7 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
 .face.is-ph::after{content:"Fotka svatby";font:400 15px/1.3 var(--f-body);color:var(--dark)}
 .wring .rtrack{stroke:rgb(247 237 226 / .16);stroke-width:1.4}   /* ne „track“: tak se jmenuje pás s logy */
 .js-anim .wring .prog{stroke-dashoffset:72.5}
+.wring .ghost{stroke-dasharray:0 200}   /* dosavadní oblouk při výměně „odjede“ po směru prstence, nový se kreslí za ním */   /* dosavadní oblouk se při výměně rozplyne, nový se kreslí pod ním */
 .js-anim .wring .prog.run{animation:draw var(--dur,3s) linear forwards}
 .v-a.paused .wring .prog.run{animation-play-state:paused}
 @keyframes draw{to{stroke-dashoffset:0}}
@@ -436,7 +437,7 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
     </div>
   </header>
   <div class="pattern"></div>
-  <figure class="win wa"><span class="bi bi-hero bi-balloons" aria-hidden="true"><img src="img/ikony/oslavy-768.webp" alt=""></span><div class="disc"><div class="face a"><img src="img/hero/uvod-o309.jpg" alt="Nadšená žena s dlaněmi na tvářích"></div><div class="face b" aria-hidden="true"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""></div></div><svg class="wring" viewBox="0 0 100 100" aria-hidden="true"><circle class="rtrack" cx="50" cy="50" r="49" pathLength="100"/><circle class="prog" cx="50" cy="50" r="49" pathLength="100"/></svg></figure>
+  <figure class="win wa"><span class="bi bi-hero bi-balloons" aria-hidden="true"><img src="img/ikony/oslavy-768.webp" alt=""></span><div class="disc"><div class="face a"><img src="img/hero/uvod-o309.jpg" alt="Nadšená žena s dlaněmi na tvářích"></div><div class="face b" aria-hidden="true"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""></div></div><svg class="wring" viewBox="0 0 100 100" aria-hidden="true"><circle class="rtrack" cx="50" cy="50" r="49" pathLength="100"/><circle class="ghost" cx="50" cy="50" r="49" pathLength="100"/><circle class="prog" cx="50" cy="50" r="49" pathLength="100"/></svg></figure>
   <div class="in"><div class="wrap"><div class="copy"><h1>Eventová<br>agentura<br><span class="nw">v&nbsp;srdci Karlína</span></h1><p class="claim" aria-hidden="true">Děláme <b class="word">firemní eventy,</b><br>ze kterých odcházíte happy.</p><p class="sr-only">Děláme firemní eventy, konference, teambuildingy, vánoční večírky, oslavy a&nbsp;svatby, ze kterých odcházíte happy.</p><div class="tabs" role="group" aria-label="Typ eventu"><button type="button" class="tab on" aria-pressed="true">Firemní eventy</button><button type="button" class="tab" aria-pressed="false">Konference</button><button type="button" class="tab" aria-pressed="false">Teambuildingy</button><button type="button" class="tab" aria-pressed="false">Vánoční večírky</button><button type="button" class="tab" aria-pressed="false">Oslavy</button><button type="button" class="tab" aria-pressed="false">Svatby</button></div><a class="cta" href="#">Chci poptat služby</a></div></div></div>
 </section>
 
@@ -753,7 +754,17 @@ button.tab{background:none;border:0;cursor:pointer}.tab:hover{color:var(--cream)
       if (ph){ im.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'; im.alt = ''; f.setAttribute('role', 'img'); f.setAttribute('aria-label', d[3]); }
       else { im.src = d[1]; im.style.objectPosition = d[2]; im.alt = d[3]; f.removeAttribute('role'); f.removeAttribute('aria-label'); }
     }
-    function runProg(){ prog.classList.remove('run'); void prog.getBoundingClientRect(); prog.classList.add('run'); }
+    var ghost = hero.querySelector('.wring .ghost');
+    function runProg(){
+      // nakreslená část oblouku (0 až 72,5 z obvodu 100) se zkrátí od začátku a odjede na konec prstence
+      var a = 72.5 - (parseFloat(getComputedStyle(prog).strokeDashoffset) || 0);
+      if (a > .5 && ghost.animate){
+        ghost.getAnimations().forEach(function(x){ x.cancel(); });
+        ghost.animate([{strokeDasharray: a + ' 200', strokeDashoffset: 0}, {strokeDasharray: '0 200', strokeDashoffset: -a}],
+                      {duration: 800, easing: 'cubic-bezier(.55,0,.25,1)', fill: 'forwards'});
+      }
+      prog.classList.remove('run'); void prog.getBoundingClientRect(); prog.classList.add('run');
+    }
     function show(i){
       hi = i; var d = D[i];
       tabs.forEach(function(x, k){ x.classList.toggle('on', k === i); x.setAttribute('aria-pressed', k === i ? 'true' : 'false'); });
